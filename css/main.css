@@ -1250,3 +1250,11 @@ header .seperator-skew svg .fill-white {
   height: auto; /* Maintain aspect ratio */
   border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+  header {
+    position: static;
+    height: auto;
+    padding: 10px;
+  }
+}
