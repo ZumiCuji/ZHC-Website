@@ -1263,6 +1263,13 @@ header .seperator-skew svg .fill-white {
   }
 }
 
+@media (min-width: 1200px) {
+  .intro {
+    margin-top: 50px; /* increase this value as needed */
+  }
+}
+
+
 .my-video {
   width: 400px;   /* or use %, vw for responsive */
   height: auto;   /* maintain aspect ratio */
