@@ -1262,3 +1262,9 @@ header .seperator-skew svg .fill-white {
     margin-top: 120px; /* Adjust value as needed for smaller screens */
   }
 }
+
+.my-video {
+  width: 400px;   /* or use %, vw for responsive */
+  height: auto;   /* maintain aspect ratio */
+  border-radius: 8px;  /* optional, just for looks */
+}
