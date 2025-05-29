@@ -1250,3 +1250,28 @@ header .seperator-skew svg .fill-white {
   height: auto; /* Maintain aspect ratio */
   border-radius: 10px;
 }
+
+@media (max-width: 1000px) {
+  header {
+    position: static;
+    height: auto;
+    padding: 10px;
+  }
+
+  .intro {
+    margin-top: 120px; /* Adjust value as needed for smaller screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .intro {
+    margin-top: 50px; /* increase this value as needed */
+  }
+}
+
+
+.my-video {
+  width: 400px;   /* or use %, vw for responsive */
+  height: auto;   /* maintain aspect ratio */
+  border-radius: 8px;  /* optional, just for looks */
+}
