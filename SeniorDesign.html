@@ -129,15 +129,12 @@
           <div data-aos="fade-up">
             <div style="display: flex; align-items: center; justify-content: center;">
               <h1 class="h1">
-                  Hi, I'm <span class="main-font text-blue">Zumi Cuji</span>
+                  Soil Moisture Assessment & Response Tracking Satellite
               </h1>
               <img class="profile-pic" src="img/IMG_3099.jpg" alt="Profile Image" style="max-width: 200px; padding-left: 20px;">
             </div>
 
 
-            <p class="student" id="student">
-              I recently graduated from North Carolina State University with a Bachelor's of Science in Aerospace Engineering with a minor in Physics! Go Pack!
-            </p>
           </div>
         </div>
 
@@ -163,9 +160,57 @@
 
 
 <!-- Footer -->
-<footer>
-  <p>&copy; 2025 Zumi Huaira Cuji. All rights reserved.</p>
-  <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-  <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-</footer>
-</body>
+<footer id="footer" class="footer">
+      <div class="container">
+        <div class="footer-flex">
+          <img src="img/Logo.png" alt="logo" id="logo-footer">
+            <!-- Bottom Clickables -->
+          <div class="footer-icon-links">
+            <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+            <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top button in corner -->
+    <a id="backToTopBtn" class="btn-blue">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Particles.js for hero section -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- GSAP animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+
+    <script>
+      particlesJS.load('particles-js', './particles.json', function(){
+        console.log("particles.json loaded...")
+      })
+
+      particlesJS.load('skills', './particles.json', function(){
+        console.log("particles.json loaded...")
+      })
+
+      particlesJS.load('footer', './particles.json', function(){
+        console.log("particles.json loaded...")
+      })
+
+      particlesJS.load()
+    </script>
+
+    <script defer src="js/app.js"></script>
+
+    <!-- AOS Animations -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+  </body>
+</html>
