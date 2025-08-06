@@ -1,26 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="css/gallerystyle.css">
+  <head>
+    <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zumi Cuji</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Alfa Slab One font -->
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+
+    <!-- Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome icons: https://www1.ucdenver.edu/docs/librariesprovider29/college-of-engineering-and-applied-science/web-resources/cheatsheet-_-font-awesome.pdf -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+
+    <!-- Animation library styles -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- Iconify Icons -->
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CubeSat</title>
-</head>
+  </head>
+  <style>
+    .project-img{
+      border-radius: 10px !important; /* change the value to adjust the amount of rounding */
+      border: 4px solid #3981F7 !important; /* change the value to adjust the width of the border */
+    }
+    @media (max-width: 767px) {
+            .profile-pic {
+                display: none;
+            }
+      }
+    @media (max-height: 700px){
+      .profile-pic{
+        width: 20%;
+      }
+      .socials{
+        display:none;
+      }
+      #header{
+        min-height:650px;
+      }
+    }
+    .footer canvas {
+      display: none !important;
+    }
+  </style>
 
-<body>
-  <header class="page header">
-    <div class="header-content">
-      <h1>ZUMI HUAIRA CUJI</h1>
-      <hr>
-      <nav class="navigation">
-          <a href="index.html">Home</a>
-          <a href="index.html#projects">Projects</a>
-          <a href="about.html">About Me</a>
-      </nav>
-  </div>
-</header>
+  <body>
+    <!-- HEADER -->
+    <header id="header">
+      <div id="particles-js">
+        <nav id="nav" data-aos="fade-in">
+          <div class="container nav-container">
+            <a href="index.html" id="logo">
+              <img src="img/Logo.png" alt="Name Logo">
+            </a>
+            <ul class="hide-for-mobile nav-links flex">
+              <li>
+                <a href="#projects" class="link"
+                  ><i class="fas fa-tools"></i> Projects</a
+                >
+              </li>
+              <li>
+                <a href="#work" class="link"
+                  ><i class="fas fa-coffee"></i> Experience</a
+                >
+              </li>
+              
+              <li>
+                <a href="about.html" class="link"
+                  ><i class="fas fa-paper-plane"></i> About Me</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="link"
+                  ><i class="fas fa-envelope"></i> Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="mobile-menu hide-for-desktop">
+            <div class="container">
+              <div class="mobile-menu-links">
+                <ul class="flex">
+                  <li>
+                    <a href="#projects" class="link blue-hover"
+                      >Projects</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#work" class="link blue-hover"
+                      >Experience</a
+                    >
+                  </li>
+                  <li>
+                    <a href="about.html" class="link blue-hover"
+                      >About Me</a>
+                  </li>
+                  <li>
+                    <a href="#contact" class="link blue-hover"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            </div>
+          </div>
+        </nav>
+
+        <!-- HERO -->
+        <div class="hero">
+          <div data-aos="fade-up">
+            <div style="display: flex; align-items: center; justify-content: center;">
+              <h1 class="h1">
+                  Hi, I'm <span class="main-font text-blue">Zumi Cuji</span>
+              </h1>
+              <img class="profile-pic" src="img/IMG_3099.jpg" alt="Profile Image" style="max-width: 200px; padding-left: 20px;">
+            </div>
+
+
+            <p class="student" id="student">
+              I recently graduated from North Carolina State University with a Bachelor's of Science in Aerospace Engineering with a minor in Physics! Go Pack!
+            </p>
+          </div>
+        </div>
+
+        <!-- SOCIAL LINKS -->
+        <div class="socials" data-aos="fade-in">
+          <ul>
+            <li class="bg-blue"><a href="https://linkedin.com/in/zumi-cuji-480884289"
+              target="_blank"><span class="socials-text">LinkedIn</span> <i class="fab fa-linkedin fa-2x"></i
+            ></a></li>
+            <li class="bg-white"><a class="text-dark-grey" href="mailto:zumicuji@gmail.com"><span class="socials-text">Email</span><i class="fas fa-envelope fa-2x"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="seperator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+
+    </header>
 
 
 
