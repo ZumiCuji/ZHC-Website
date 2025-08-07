@@ -98,6 +98,29 @@ body {
     font-size: 1.2rem;
 }
 
+.project-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+  padding: 3rem 1rem;
+}
+
+.project-row img.medium-img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 4px solid #3981F7;
+}
+
+.project-row .description {
+  max-width: 800px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
 
 /* Gallery Container */
 .gallery-container {
