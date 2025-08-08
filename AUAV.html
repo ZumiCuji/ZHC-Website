@@ -1,33 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="css/gallerystyle.css">
-    <!-- Iconify Icons -->
+  <head>
+    <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zumi Cuji</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+
+    <!-- Animation library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUAV</title>
-</head>
 
-<body>
-  <header class="page header">
-    <div class="header-content">
-      <h1>ZUMI HUAIRA CUJI</h1>
-      <hr>
-      <nav class="navigation">
-          <a href="index.html">Home</a>
-          <a href="index.html#projects">Projects</a>
-          <a href="about.html">About Me</a>
-      </nav>
-  </div>
-</header>
+    <style>
+      .project-img {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 10px;
+        border: 4px solid #3981F7;
+        margin-right: 20px;
+      }
+
+      .project-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 40px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .project-text {
+        max-width: 600px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 767px) {
+        .profile-pic {
+          display: none;
+        }
+        .project-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      @media (max-height: 700px){
+        .profile-pic {
+          width: 20%;
+        }
+        .socials {
+          display: none;
+        }
+        #header {
+          min-height: 650px;
+        }
+      }
+
+      .footer canvas {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="header">
+      <div id="particles-js">
+        <nav id="nav" data-aos="fade-in">
+          <div class="container nav-container">
+            <a href="index.html" id="logo">
+              <img src="img/Logo.png" alt="Name Logo">
+            </a>
+            <ul class="hide-for-mobile nav-links flex">
+              <li><a href="#projects" class="link"><i class="fas fa-tools"></i> Projects</a></li>
+              <li><a href="#work" class="link"><i class="fas fa-coffee"></i> Experience</a></li>
+              <li><a href="about.html" class="link"><i class="fas fa-paper-plane"></i> About Me</a></li>
+              <li><a href="#contact" class="link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+          </div>
+          <div class="mobile-menu hide-for-desktop">
+            <div class="container">
+              <div class="mobile-menu-links">
+                <ul class="flex">
+                  <li><a href="#projects" class="link blue-hover">Projects</a></li>
+                  <li><a href="#work" class="link blue-hover">Experience</a></li>
+                  <li><a href="about.html" class="link blue-hover">About Me</a></li>
+                  <li><a href="#contact" class="link blue-hover">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- HERO -->
+        <div class="hero">
+          <div data-aos="fade-up">
+            <div style="display: flex; align-items: center; justify-content: center;">
+              <p class="student" id="project-title" style="font-size: 1.5rem;">
+                Automated Unmanned Aerial Vehicle
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL LINKS -->
+        <div class="socials" data-aos="fade-in">
+          <ul>
+            <li class="bg-blue"><a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><span class="socials-text">LinkedIn</span> <i class="fab fa-linkedin fa-2x"></i></a></li>
+            <li class="bg-white"><a class="text-dark-grey" href="mailto:zumicuji@gmail.com"><span class="socials-text">Email</span><i class="fas fa-envelope fa-2x"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="seperator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </header>
+
+    <!-- PROJECT SECTION -->
+    <section id="work" class="projects">
+      <div class="container">
+        <div class="project-row" data-aos="fade-up">
+          <div class="center">
+            <video class="my-video" autoplay muted loop playsinline controls>
+              <source src="img/IMG_2253.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="text-center">
+              <br>
+          </div>
+          <div class="text-center">
+            <p class="work" id="projects">
+              A fellow aerospace engineering student and I set out to build a radio-controlled (RC) airplane from essential parts. To prepare for the maiden flight—and avoid turning it into airborne debris—I spent countless hours on a flight simulator. The development of the manned airplane was relatively straightforward and mostly plug-and-play.
+              The test flights were successful but left the aircraft with significant damage along the way. At one point, a faulty battery fried multiple flight controllers, requiring us to install and configure new hardware.
+
+              Integrating the autopilot system proved to be the real challenge. GPS and compass calibration issues, combined with quirks in the Mission Planner software, demanded extensive troubleshooting. In the end, our persistence paid off—the plane successfully executed its first fully preprogrammed mission.<br> The video attached is not the unmanned flight as we were too excited to remmeber to film the successful unmanned flight.
+            </p>        
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Zumi Huaira Cuji. All rights reserved.</p>
-  <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-  <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-</footer>
-</body>
+    <!-- FOOTER -->
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="footer-flex">
+          <img src="img/Logo.png" alt="logo" id="logo-footer">
+          <div class="footer-icon-links">
+            <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+            <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a id="backToTopBtn" class="btn-blue"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JS Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script>
+      particlesJS.load('particles-js', './particles.json', function(){
+        console.log("particles.json loaded...")
+      });
+      particlesJS.load('skills', './particles.json', function(){});
+      particlesJS.load('footer', './particles.json', function(){});
+    </script>
+    <script defer src="js/app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
