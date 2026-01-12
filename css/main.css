@@ -502,6 +502,7 @@ header .hero {
 header .hero h1,
 header .hero p {
   color: white;
+  margin-top: 400px;
 }
 
 header .hero h1 {
