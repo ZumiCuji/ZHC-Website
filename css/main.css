@@ -459,9 +459,9 @@ header .hero p {
 /* Center and raise hero content inside the particles container */
 header #particles-js .hero {
   position: absolute;
-  top: 45%; /* slightly raised from center */
+  top: 40%; /* raised higher (desktop) */
   left: 50%;
-  transform: translate(-50%, -45%);
+  transform: translate(-50%, -50%);
   width: 100%;
   display: flex;
   align-items: center;
