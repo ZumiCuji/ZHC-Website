@@ -1,8 +1,3 @@
-.medium-img {
-              width: 200px;
-              height: auto; /* keeps proportions */
-            }
-
 html {
   scroll-behavior: smooth;
 }
@@ -450,24 +445,56 @@ header nav .nav-container .nav-links .link::after {
   transition: width 0.3s ease;
 }
 
-
-
-header .hero p {
-  color: white;
+header nav .nav-container .nav-links .link:hover::after {
+  width: 100%;
 }
 
-/* Center and raise hero content inside the particles container */
-header #particles-js .hero {
+header nav .mobile-menu {
+  position: relative;
+  z-index: 1000;
+}
+
+header nav .mobile-menu .container {
+  padding-top: 0;
+}
+
+header nav .mobile-menu .container .mobile-menu-links ul {
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+header nav .mobile-menu .container .mobile-menu-links ul li {
+  margin: 0rem 1rem;
+}
+
+header nav .mobile-menu .container .mobile-menu-links ul .link::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 0;
+  height: 2px;
+  top: 3px;
+  margin: auto;
+  background: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+header nav .mobile-menu .container .mobile-menu-links ul .link:hover::after {
+  width: 100%;
+}
+
+header .hero {
+  z-index: 5;
   position: absolute;
-  top: 40%; /* raised higher (desktop) */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 10;
+}
+
+header .hero h1,
+header .hero p {
+  color: white;
 }
 
 header .hero h1 {
@@ -475,6 +502,8 @@ header .hero h1 {
   white-space: nowrap;
   text-align: center;
   font-size: clamp(2rem, 5vw, 4rem);
+  font-family: "Alfa Slab One", "Poppins";
+  font-weight: 400;
   font-family: "Alfa Slab One", "Poppins";
   font-weight: 400;
 }
@@ -513,9 +542,12 @@ header .socials ul {
 
 header .socials ul li {
   transition: 0.3s;
+  width: 100%;
   display: flex;
   justify-content: end;
   font-size: 1.5rem;
+  width: 100%;
+  height: 100%;
 }
 
 header .socials ul li a {
@@ -537,6 +569,7 @@ header .socials ul li:hover {
 header .scroll-btn-container {
   position: absolute;
   width: 100%;
+  background: red;
   bottom: 150px;
 }
 
@@ -611,11 +644,8 @@ header .seperator-skew svg .fill-white {
   header nav .nav-container {
     justify-content: center;
   }
-  /* on smaller screens keep hero a bit higher than default */
-  header #particles-js .hero {
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0 1rem;
+  header .hero {
+    top: 55%;
   }
   header .socials {
     display: none;
@@ -1204,43 +1234,19 @@ header .seperator-skew svg .fill-white {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.btn-blue:hover {
+  background-color: #0056b3;
+}
+
 .gallery-grid {
   display: flex;
   gap: 10px; /* Space between images */
   justify-content: center; /* Center images horizontally */
-  flex-wrap: wrap; /* Allow wrapping for responsiveness */
-  align-items: center;
+  flex-wrap: nowrap; /* Prevent wrapping */
 }
 
 .gallery-grid img {
-  width: 100%;
-  max-width: 45%; /* Keep two-up layout on wider screens */
+  max-width: 50%; /* Make sure images don't exceed 50% of the container width */
   height: auto; /* Maintain aspect ratio */
   border-radius: 10px;
-  object-fit: cover;
-}
-
-@media (max-width: 1000px) {
-  header {
-    position: static;
-    height: auto;
-    padding: 10px;
-  }
-
-  .intro {
-    margin-top: 120px; /* Adjust value as needed for smaller screens */
-  }
-}
-
-@media (min-width: 1200px) {
-  .intro {
-    margin-top: 50px; /* increase this value as needed */
-  }
-}
-
-
-.my-video {
-  width: 400px;   /* or use %, vw for responsive */
-  height: auto;   /* maintain aspect ratio */
-  border-radius: 8px;  /* optional, just for looks */
 }
