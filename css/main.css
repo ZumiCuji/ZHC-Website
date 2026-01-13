@@ -450,53 +450,8 @@ header nav .nav-container .nav-links .link::after {
   transition: width 0.3s ease;
 }
 
-header nav .nav-container .nav-links .link:hover::after {
-  width: 100%;
-}
 
-header nav .mobile-menu {
-  position: relative;
-  z-index: 1000;
-}
 
-header nav .mobile-menu .container {
-  padding-top: 0;
-}
-
-header nav .mobile-menu .container .mobile-menu-links ul {
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-}
-
-header nav .mobile-menu .container .mobile-menu-links ul li {
-  margin: 0rem 1rem;
-}
-
-header nav .mobile-menu .container .mobile-menu-links ul .link::after {
-  content: "";
-  position: relative;
-  display: block;
-  width: 0;
-  height: 2px;
-  top: 3px;
-  margin: auto;
-  background: #3b82f6;
-  transition: width 0.3s ease;
-}
-
-header nav .mobile-menu .container .mobile-menu-links ul .link:hover::after {
-  width: 100%;
-}
-
-header .hero {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-}
-
-header .hero h1,
 header .hero p {
   color: white;
 }
