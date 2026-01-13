@@ -456,6 +456,20 @@ header .hero p {
   color: white;
 }
 
+/* Center and raise hero content inside the particles container */
+header #particles-js .hero {
+  position: absolute;
+  top: 45%; /* slightly raised from center */
+  left: 50%;
+  transform: translate(-50%, -45%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+}
+
 header .hero h1 {
   letter-spacing: 2px;
   white-space: nowrap;
@@ -597,8 +611,11 @@ header .seperator-skew svg .fill-white {
   header nav .nav-container {
     justify-content: center;
   }
-  header .hero {
-    top: 55%;
+  /* on smaller screens keep hero a bit higher than default */
+  header #particles-js .hero {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 1rem;
   }
   header .socials {
     display: none;
