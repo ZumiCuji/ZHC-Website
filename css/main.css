@@ -3,6 +3,21 @@
               height: auto; /* keeps proportions */
             }
 
+.image-container {
+  display: flex;
+  justify-content: center; /* Horizontally centers the images */
+  align-items: center;     /* Vertically aligns them */
+  flex-wrap: wrap;         /* Allows images to wrap on small screens */
+  gap: 20px;               /* Creates consistent space between all images */
+}
+
+.profile-pic {
+  width: 250px;           /* Set a fixed width */
+  height: 250px;          /* Set a fixed height */
+  object-fit: cover;      /* This is the magic! Makes images fill the space without stretching */
+  border-radius: 50%;     /* Makes the images circular, like profile pictures */
+}
+
 html {
   scroll-behavior: smooth;
 }
