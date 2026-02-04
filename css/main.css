@@ -511,7 +511,7 @@ header nav .mobile-menu .container .mobile-menu-links ul .link:hover::after {
 header .hero {
   z-index: 5;
   position: absolute;
-  top: 50%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
