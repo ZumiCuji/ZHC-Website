@@ -494,24 +494,11 @@ header .hero p {
 }
 
 header .hero h1 {
-  letter-spacing: 2px;
-  white-space: nowrap;
-  text-align: center;
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-family: "Alfa Slab One", "Poppins";
-  font-weight: 400;
-  font-family: "Alfa Slab One", "Poppins";
-  font-weight: 400;
+ 
 }
 
 header .hero p {
-  color: #dcdcdc;
-  line-height: 1.6;
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0.5rem;
+ 
 }
 
 header .hero p .blue-link-underline {
