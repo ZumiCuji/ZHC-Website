@@ -4,18 +4,22 @@
             }
 
 .image-container {
-  display: flex;
-  justify-content: center; /* Horizontally centers the images */
-  align-items: center;     /* Vertically aligns them */
-  flex-wrap: wrap;         /* Allows images to wrap on small screens */
-  gap: 20px;               /* Creates consistent space between all images */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 equal-width columns */
+  grid-template-rows: repeat(2, 1fr);    /* Creates 2 equal-height rows */
+  gap: 15px;                             /* The space between your images */
+  
+  /* --- Set the overall size and center the grid --- */
+  max-width: 600px; /* Adjust this value to make the whole grid bigger or smaller */
+  margin: 0 auto;   /* This centers the container on the page */
+  aspect-ratio: 1 / 1; /* This forces the container to be a perfect square */
 }
 
 .profile-pic {
-  width: 250px;           /* Set a fixed width */
-  height: 250px;          /* Set a fixed height */
-  object-fit: cover;      /* This is the magic! Makes images fill the space without stretching */
-  border-radius: 50%;     /* Makes the images circular, like profile pictures */
+  width: 100%;            /* Image fills its grid cell's width */
+  height: 100%;           /* Image fills its grid cell's height */
+  object-fit: cover;      /* CRITICAL: Fills the space without stretching/distorting the image */
+  border-radius: 8px;     /* Optional: adds slightly rounded corners for a modern look */
 }
 
 html {
