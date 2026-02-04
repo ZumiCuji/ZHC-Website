@@ -3,6 +3,7 @@
               height: auto; /* keeps proportions */
             }
 
+
 .image-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Creates 2 equal-width columns */
@@ -21,7 +22,6 @@
   object-fit: cover;      /* CRITICAL: Fills the space without stretching/distorting the image */
   border-radius: 8px;     /* Optional: adds slightly rounded corners for a modern look */
 }
-
 html {
   scroll-behavior: smooth;
 }
