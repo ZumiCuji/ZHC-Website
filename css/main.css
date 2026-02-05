@@ -11,9 +11,9 @@
   gap: 1px;                             /* The space between your images */
   
   /* --- Set the overall size and center the grid --- */
-  max-width: 200px; /* Adjust this value to make the whole grid bigger or smaller */
+  max-width: 700px; /* Adjust this value to make the whole grid bigger or smaller */
   margin: 0 auto;   /* This centers the container on the page */
-  aspect-ratio: 2 / 1; /* This forces the container to be a perfect square */
+  aspect-ratio: 4 / 1; /* This forces the container to be a perfect square */
 }
 
 .profile-pic {
