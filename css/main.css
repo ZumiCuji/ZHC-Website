@@ -5,23 +5,24 @@
 
 
 .image-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Creates 2 equal-width columns */
-  grid-template-rows: repeat(1, 1fr);    /* Creates 2 equal-height rows */
-  gap: 1px;                             /* The space between your images */
-  
-  /* --- Set the overall size and center the grid --- */
-  max-width: 700px; /* Adjust this value to make the whole grid bigger or smaller */
-  margin: 0 auto;   /* This centers the container on the page */
-  aspect-ratio: 4 / 1; /* This forces the container to be a perfect square */
+  display: flex;             /* Use Flexbox for simple 1-row centering */
+  justify-content: center;   /* Horizontally centers all the circles */
+  align-items: center;       /* Vertically aligns them if they have different heights (good practice) */
+  gap: 20px;                 /* The space between your circles */
+  margin: 0 auto;            /* Ensures the container itself is centered */
+  padding: 20px 0;           /* Adds some space above/below the row of circles */
 }
 
 .profile-pic {
-  width: 100%;            /* Image fills its grid cell's width */
-  height: 100%;           /* Image fills its grid cell's height */
-  object-fit: cover;      /* CRITICAL: Fills the space without stretching/distorting the image */
-  border-radius: 2px;     /* Optional: adds slightly rounded corners for a modern look */
+  width: 150px;           /* Set a fixed width */
+  height: 150px;          /* Set a fixed height to match the width (creates a square) */
+  
+  /* --- This is the most important part for the circle shape --- */
+  border-radius: 50%;     /* This turns the square into a perfect circle */
+  
+  object-fit: cover;      /* Fills the circle without stretching the image */
 }
+
 html {
   scroll-behavior: smooth;
 }
