@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Creates 2 equal-width columns */
   grid-template-rows: repeat(1, 1fr);    /* Creates 2 equal-height rows */
-  gap: 5px;                             /* The space between your images */
+  gap: 1px;                             /* The space between your images */
   
   /* --- Set the overall size and center the grid --- */
   max-width: 200px; /* Adjust this value to make the whole grid bigger or smaller */
@@ -20,7 +20,7 @@
   width: 100%;            /* Image fills its grid cell's width */
   height: 100%;           /* Image fills its grid cell's height */
   object-fit: cover;      /* CRITICAL: Fills the space without stretching/distorting the image */
-  border-radius: 8px;     /* Optional: adds slightly rounded corners for a modern look */
+  border-radius: 2px;     /* Optional: adds slightly rounded corners for a modern look */
 }
 html {
   scroll-behavior: smooth;
