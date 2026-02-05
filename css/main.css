@@ -13,7 +13,7 @@
   /* --- Set the overall size and center the grid --- */
   max-width: 150px; /* Adjust this value to make the whole grid bigger or smaller */
   margin: 0 auto;   /* This centers the container on the page */
-  aspect-ratio: 1 / 1; /* This forces the container to be a perfect square */
+  aspect-ratio: 2 / 1; /* This forces the container to be a perfect square */
 }
 
 .profile-pic {
