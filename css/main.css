@@ -14,8 +14,8 @@
 }
 
 .profile-pic {
-  width: 150px;           /* Set a fixed width */
-  height: 150px;          /* Set a fixed height to match the width (creates a square) */
+  width: 100px;           /* Set a fixed width */
+  height: 100px;          /* Set a fixed height to match the width (creates a square) */
   
   /* --- This is the most important part for the circle shape --- */
   border-radius: 50%;     /* This turns the square into a perfect circle */
