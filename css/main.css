@@ -6,8 +6,8 @@
 
 .image-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates 2 equal-width columns */
-  grid-template-rows: repeat(2, 1fr);    /* Creates 2 equal-height rows */
+  grid-template-columns: repeat(4, 1fr); /* Creates 2 equal-width columns */
+  grid-template-rows: repeat(1, 1fr);    /* Creates 2 equal-height rows */
   gap: 15px;                             /* The space between your images */
   
   /* --- Set the overall size and center the grid --- */
