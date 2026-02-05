@@ -405,10 +405,8 @@ header {
   background-size: cover;
   min-height: 80vh;
   position: relative;
-  
-  /* --- ADD THIS LINE --- */
-  padding-top: 200px; /* Adjust this value as needed */
-}
+
+
 }
 
 header #particles-js {
