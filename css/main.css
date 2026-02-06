@@ -1285,7 +1285,7 @@ border-radius: 8px; /* optional, just for looks */
 /* ===== 6. FIX FOR MOBILE HEADER OVERLAY ISSUE ===== */
 /* ==================================================== */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     header {
         /* Let the header's height be determined by its content on mobile */
         min-height: auto;
