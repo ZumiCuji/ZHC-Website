@@ -1,200 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="css/main.css">
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zumi Cuji</title>
-
+    <title>S.M.A.R.T. CubeSat - Zumi Cuji</title>
+    
+    <!-- Link to the original main.css file -->
+    <link rel="stylesheet" href="css/main.css">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
+    
     <!-- Font Awesome icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="icon" href="/img/favicon.png" type="image/png">
-
-    <!-- Animation library -->
+    
+    <!-- Animation & Icon Libraries -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
     <style>
-      .project-img {
-        width: 100%;
-        max-width: 300px;
-        border-radius: 10px;
-        border: 4px solid #3981F7;
-        margin-right: 20px;
-      }
-
-      .project-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 40px 20px;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-
-      .project-text {
-        max-width: 600px;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-
-      @media (max-width: 767px) {
-        .profile-pic {
-          display: none;
+        /* This is the same block of override styles for consistency */
+        
+        /* --- 1. General Color & Background Changes --- */
+        body {
+            color: white;
+            background: #181a1b;
         }
-        .project-container {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
-      }
 
-      @media (max-height: 700px){
-        .profile-pic {
-          width: 20%;
+        #particles-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
-        .socials {
-          display: none;
-        }
-        #header {
-          min-height: 650px;
-        }
-      }
 
-      .footer canvas {
-        display: none !important;
-      }
+        .projects, .skills, .contact, .footer, .education, .details-section {
+            background: transparent !important;
+        }
+        
+        .seperator-skew {
+            display: none;
+        }
+
+        /* --- 2. Change Blue to Red --- */
+        .text-blue { color: #DC143C !important; }
+        .btn-blue, .bg-blue {
+            background-color: #DC143C !important;
+            border-color: #DC143C !important;
+        }
+        .btn-blue:hover {
+            background: #a50021 !important;
+            border-color: #a50021 !important;
+        }
+        header nav .nav-container .nav-links .link::after,
+        .footer .footer-flex .footer-icon-links a:hover {
+            color: #DC143C !important;
+            background-color: #DC143C !important;
+        }
+        .project-img {
+            border-color: #DC143C !important;
+        }
+        
+        /* --- 3. Custom Styles for This Page --- */
+        .details-section {
+            padding: 4rem 0;
+        }
+        .hero-title {
+            font-family: "Alfa Slab One", "Poppins";
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .details-section .project-row {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .details-section .project-left {
+            flex: 1;
+        }
+        .details-section .project-right {
+            flex: 1.5; /* Give text more space */
+            text-align: left;
+        }
+        .details-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .details-section strong {
+            color: #DC143C; /* Red emphasis */
+            font-weight: 600;
+        }
+        .bg-white a.text-dark-grey {
+            color: #2e3031 !important;
+        }
+
+        @media (max-width: 860px) {
+            .details-section .project-row {
+                flex-direction: column;
+            }
+            .details-section .project-right {
+                text-align: center;
+                margin-top: 2rem;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
+    <div id="particles-bg"></div>
+
     <!-- HEADER -->
-    <header id="header">
-      <div id="particles-js">
+    <header id="header" style="min-height: auto; padding-bottom: 2rem;">
         <nav id="nav" data-aos="fade-in">
-          <div class="container nav-container">
-            <a href="index.html" id="logo">
-              <img src="img/Logo.png" alt="Name Logo">
-            </a>
-            <ul class="hide-for-mobile nav-links flex">
-              <li><a href="#projects" class="link"><i class="fas fa-tools"></i> Projects</a></li>
-              <li><a href="#work" class="link"><i class="fas fa-coffee"></i> Experience</a></li>
-              <li><a href="about.html" class="link"><i class="fas fa-paper-plane"></i> About Me</a></li>
-              <li><a href="#contact" class="link"><i class="fas fa-envelope"></i> Contact</a></li>
-            </ul>
-          </div>
-          <div class="mobile-menu hide-for-desktop">
-            <div class="container">
-              <div class="mobile-menu-links">
-                <ul class="flex">
-                  <li><a href="#projects" class="link blue-hover">Projects</a></li>
-                  <li><a href="#work" class="link blue-hover">Experience</a></li>
-                  <li><a href="about.html" class="link blue-hover">About Me</a></li>
-                  <li><a href="#contact" class="link blue-hover">Contact</a></li>
+            <div class="container nav-container">
+                <a href="index.html" id="logo"><img src="img/Logo.png" alt="Name Logo"></a>
+                <ul class="hide-for-mobile nav-links flex">
+                    <li><a href="index.html" class="link">Home</a></li>
+                    <li><a href="about.html" class="link">About Me</a></li>
+                    <li><a href="index.html#contact" class="link">Contact</a></li>
                 </ul>
-              </div>
             </div>
-          </div>
         </nav>
-
-        <!-- HERO -->
-        <div class="hero">
-          <div data-aos="fade-up">
-            <div style="display: flex; align-items: center; justify-content: center;">
-              <p class="student" id="project-title" style="font-size: 1.5rem; ">
-                Soil Moisture Assessment & Response Tracking Satellite
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- SOCIAL LINKS -->
-        <div class="socials" data-aos="fade-in">
-          <ul>
-            <li class="bg-blue"><a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><span class="socials-text">LinkedIn</span> <i class="fab fa-linkedin fa-2x"></i></a></li>
-            <li class="bg-white"><a class="text-dark-grey" href="mailto:zumicuji@gmail.com"><span class="socials-text">Email</span><i class="fas fa-envelope fa-2x"></i></a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="seperator-skew">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
     </header>
 
-    <!-- PROJECT SECTION -->
-    <section id="work" class="projects">
-      <div class="container">
-        <div class="project-row" data-aos="fade-up">
-          <div class="center">
-            <img src="img/IMG_0684.JPG" alt="Team Picture" class="medium-img" />
-          </div>
-          <div class="text-center">
-              <br><br>
-          </div>
-          <div class="text-center">
-            <p class="work" id="projects">
-              <strong>S.M.A.R.T.</strong> was designed and developed by a team of 7 aerospace engineers at North Carolina State University. As project manager, I led those engineers through the entire process.
-              A detailed set of functional requirements laid the foundation for the satellite. The satellite was built with a very limited budget. The final price tag was around $1200. This trailblazed cheap satellite development.
-              The satellite was created in response to devastating flooding in western North Carolina. S.M.A.R.T. was able to use synthetic aperture radar to detect objects hundreds of meters away. This data was then sent wirelessly to a ground station which then developed a map.
-            </p>
+    <!-- PROJECT DETAILS SECTION -->
+    <section class="details-section">
+        <div class="container" data-aos="fade-up">
+            
+            <h1 class="hero-title">Soil Moisture Assessment & Response Tracking Satellite</h1>
 
-            <p><strong><br>Details:</strong></p>
-            <p>12U<br></p>          
-          </div>
+            <div class="project-row">
+                <div class="project-left">
+                    <img src="img/IMG_0684.JPG" alt="Team Picture" class="project-img" style="border-width: 4px;"/>
+                </div>
+                <div class="project-right">
+                    <p>
+                        The <strong>S.M.A.R.T.</strong> satellite was designed and developed by a team of 7 aerospace engineers at North Carolina State University. As project manager, I led those engineers through the entire process.
+                    </p>
+                    <p>
+                        A detailed set of functional requirements laid the foundation for the satellite. The satellite was built with a very limited budget, with a final price tag of around $1200. This trailblazed cheap satellite development.
+                    </p>
+                    <p>
+                        The satellite was created in response to devastating flooding in western North Carolina. S.M.A.R.T. was able to use synthetic aperture radar to detect objects hundreds of meters away. This data was then sent wirelessly to a ground station which then developed a map.
+                    </p>
+                    <p>
+                        <strong>Details:</strong> 12U CubeSat
+                    </p>
+                </div>
+            </div>
+
         </div>
-      </div>
     </section>
-
-
 
     <!-- FOOTER -->
     <footer id="footer" class="footer">
-      <div class="container">
-        <div class="footer-flex">
-          <img src="img/Logo.png" alt="logo" id="logo-footer">
-          <div class="footer-icon-links">
-            <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-            <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
-            <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
-          </div>
+        <div class="container">
+            <div class="footer-flex">
+                <img src="img/Logo.png" alt="logo" id="logo-footer">
+                <div class="footer-icon-links">
+                    <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+                    <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
 
     <a id="backToTopBtn" class="btn-blue"><i class="fa fa-chevron-up"></i></a>
 
     <!-- JS Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
     <script>
-      particlesJS.load('particles-js', './particles.json', function(){
-        console.log("particles.json loaded...")
-      });
-      particlesJS.load('skills', './particles.json', function(){});
-      particlesJS.load('footer', './particles.json', function(){});
+        // Initialize Particles.js and AOS
+        particlesJS.load('particles-bg', './particles.json', function() {
+            console.log('Background particles loaded successfully!');
+        });
+        AOS.init();
     </script>
     <script defer src="js/app.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-  </body>
+
+</body>
 </html>
