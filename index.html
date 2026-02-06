@@ -256,14 +256,16 @@
     
      <!-- SKILLS -->
     <section id="skills" class="skills">
-      <div class="seperator-skew-top">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
-      <div class="container" data-aos="fade-in">
-        <h2 class="text-white main-font">Technical <span class="text-blue main-font">Skills</span></h2>
-        <ul class="skills-icons">
+    <!-- Add this wrapper div -->
+    <div id="skills-particles"> 
+        <div class="seperator-skew-top">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+        <div class="container" data-aos="fade-in">
+            <h2 class="text-white main-font">Technical <span class="text-blue main-font">Skills</span></h2>
+            <ul class="skills-icons">
           <li>
             <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid">
               <path d="M106.83 41.17c-13.98 2.3-27.42 8.35-39.26 17.68l74.64 43.12V58.85c-11.23-7.55-24-12.7-35.38-17.68z" fill="#E87D23"/>
@@ -290,14 +292,14 @@
           <li><span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false" data-width="90px" data-height="90px"></span><span>HTML</span></li>
           <li><span class="iconify" data-icon="logos:java" data-inline="false" data-width="90px" data-height="90px"></span><span>Java</span></li>
         </ul>
-      </div>
-
-      <div class="seperator-skew-bottom">
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
-    </section>
+        </div>
+        <div class="seperator-skew-bottom">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </div> <!-- End of the new wrapper div -->
+</section>
 
     <!-- CONTACT -->
     <section id="contact" class="contact">
@@ -395,9 +397,10 @@
         console.log("particles.json loaded...")
       })
 
-      particlesJS.load('skills', './particles.json', function(){
-        console.log("particles.json loaded...")
-      })
+     particlesJS.load('skills-particles', './particles.json', function(){
+  console.log("particles.json loaded for skills...")
+})
+
 
       particlesJS.load('footer', './particles.json', function(){
         console.log("particles.json loaded...")
