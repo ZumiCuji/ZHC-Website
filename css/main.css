@@ -1285,26 +1285,35 @@ border-radius: 8px; /* optional, just for looks */
 /* ===== 6. FIX FOR MOBILE HEADER OVERLAY ISSUE ===== */
 /* ==================================================== */
 
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 1400px) {
     header {
-        /* Let the header's height be determined by its content on mobile */
+        /* On mobile, let the header's height be determined by its content */
         min-height: auto;
         height: auto;
-        padding-bottom: 4rem; /* Add space at the bottom */
+        /* We no longer need the relative position for the hero */
+        position: static; 
     }
 
     header .hero {
-        /* THIS IS THE KEY FIX: Change from absolute to static positioning */
-        position: static;
-        /* Reset the transform since it's no longer centered absolutely */
+        /* THIS IS THE KEY FIX: Puts the hero back in the normal document flow */
+        position: static; 
+        
+        /* Reset the absolute positioning transforms from desktop view */
         transform: none;
-        width: 100%;
-        padding: 4rem 1rem 0 1rem; /* Add top padding to push it down from the nav */
+        top: auto;
+        left: auto;
+
+        /* Add padding to give it space from the nav bar and from the section below */
+        padding: 4rem 1rem;
     }
 
-    /* Adjust the hero H1 for better mobile viewing */
     header .hero h1 {
-        white-space: normal; /* Allow title to wrap */
-        font-size: 2.5rem; /* Slightly smaller but still impactful */
+        /* Allow the long title "Hi, I'm Zumi Cuji" to wrap on small screens */
+        white-space: normal; 
+    }
+    
+    /* Since the hero is no longer absolute, the socials would be out of place. We hide them. */
+    header .socials {
+        display: none;
     }
 }
