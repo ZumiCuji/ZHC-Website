@@ -1285,35 +1285,14 @@ border-radius: 8px; /* optional, just for looks */
 /* ===== 6. FIX FOR MOBILE HEADER OVERLAY ISSUE ===== */
 /* ==================================================== */
 
-@media screen and (max-width: 1400px) {
-    header {
-        /* On mobile, let the header's height be determined by its content */
-        min-height: auto;
-        height: auto;
-        /* We no longer need the relative position for the hero */
-        position: static; 
-    }
+/* 1. By default, hide this break on all screens (Desktop) */
+.mobile-break {
+    display: none;
+}
 
-    header .hero {
-        /* THIS IS THE KEY FIX: Puts the hero back in the normal document flow */
-        position: static; 
-        
-        /* Reset the absolute positioning transforms from desktop view */
-        transform: none;
-        top: auto;
-        left: auto;
-
-        /* Add padding to give it space from the nav bar and from the section below */
-        padding: 4rem 1rem;
-    }
-
-    header .hero h1 {
-        /* Allow the long title "Hi, I'm Zumi Cuji" to wrap on small screens */
-        white-space: normal; 
-    }
-    
-    /* Since the hero is no longer absolute, the socials would be out of place. We hide them. */
-    header .socials {
-        display: none;
+/* 2. When the screen is 768px or smaller (Mobile), show the break */
+@media screen and (max-width: 768px) {
+    .mobile-break {
+        display: block; /* Makes the <br> tag active */
     }
 }
