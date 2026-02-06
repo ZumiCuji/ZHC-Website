@@ -70,7 +70,26 @@
       .footer canvas {
         display: none !important;
       }
+
+      #ncsu-logo {
+          /* This makes the shape a circle */
+          border-radius: 50%;
+        
+          /* Set an equal width and height */
+          width: 300px;
+          height: 300px;
+        
+          /* This prevents the image from being distorted */
+          object-fit: cover;
+          
+          /* These lines center the image and add space above it */
+          display: block;
+          margin-top: 25px;
+          margin-left: auto;
+          margin-right: auto;
+        }
     </style>
+    
   </head>
   <body>
     <!-- HEADER -->
@@ -106,9 +125,9 @@
           <div data-aos="fade-up">
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
               <p class="h1" id="project-title" style="font-size: 1.5rem; margin-top: 150px;">
-                Aerospace Engineering<br>Minor in Physics
+                <br>Aerospace Engineering<br>Minor in Physics
               </p>
-              <img src="img/ncsu.jpg" alt="NCSU Logo" style="margin-top: 25px; width:100%; max-width:400px; height:auto; display:block; margin-left:auto; margin-right:auto;">
+                <img id="ncsu-logo" src="img/ncsu.jpg" alt="NCSU Logo">
             </div>
           </div>
         </div>
@@ -133,10 +152,10 @@
           <div class="center">
           </div>
           <div class="text-center">
-              <br>testing
+              <br>
           </div>
           <div class="text-center">
-             <p class="work" id="projects" style="center;">
+             <p class="work" id="projects" style="text-align: center;">
               <strong>North Carolina State University</strong><br>
               <br>August 2021 - May 2025<br>GPA: 3.1
           </div>
