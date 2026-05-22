@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Lazarus - Zumi Cuji</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Project Lazarus | Quantitative Trading Intelligence</title>
 
     <link rel="stylesheet" href="css/main.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
     <style>
 
-        /* =========================
-           GLOBAL THEME
-        ========================== */
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
+            margin: 0;
             color: white;
-            background: #181a1b;
             font-family: "Inter", sans-serif;
+            background:
+                radial-gradient(circle at top,
+                rgba(220,20,60,0.16),
+                transparent 30%),
+                #0a0a0b;
             overflow-x: hidden;
         }
 
@@ -33,125 +47,391 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
+            inset: 0;
             z-index: -1;
         }
 
-        .details-section,
-        .footer {
-            background: transparent !important;
+        .container {
+            width: 92%;
+            max-width: 1400px;
+            margin: auto;
         }
 
-        .text-blue {
-            color: #DC143C !important;
+        .text-red {
+            color: #DC143C;
         }
 
-        .bg-blue {
-            background-color: #DC143C !important;
-            border-color: #DC143C !important;
-        }
-
-        .details-section {
-            padding: 4rem 0;
-        }
-
-        .hero-title {
-            font-family: "Alfa Slab One", "Poppins";
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
+        .section-title {
+            font-size: 2.4rem;
             text-align: center;
+            margin-bottom: 1rem;
+            font-family: "Alfa Slab One", serif;
             letter-spacing: 1px;
         }
 
-        .project-row {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-            margin-bottom: 3rem;
-        }
-
-        .project-left {
-            flex: 1;
-        }
-
-        .project-right {
-            flex: 1.5;
-            text-align: left;
-        }
-
-        .details-section p {
-            font-size: 1.05rem;
+        .section-subtitle {
+            text-align: center;
+            max-width: 950px;
+            margin: auto;
+            color: #bdbdbd;
             line-height: 1.9;
-            margin-bottom: 1.5rem;
-            color: #d0d0d0;
+            font-size: 1.02rem;
         }
 
-        /* =========================
-           TECH GRID
-        ========================== */
-
-        .tech-grid {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .tech-box {
-            flex: 1;
-            background-color: #0c0c0c;
-            border: 2px solid #333;
-            border-radius: 10px;
-            padding: 15px;
-            height: 350px;
-            overflow: hidden;
-            box-shadow:
-                inset 0 0 10px #000,
-                0 0 20px rgba(0,0,0,0.4);
+        section {
+            padding: 5rem 0;
             position: relative;
         }
 
-        /* =========================
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        #header {
+            padding: 2rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo img {
+            width: 170px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: #DC143C;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            text-align: center;
+            padding-top: 3rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            font-family: "Alfa Slab One", serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            max-width: 950px;
+            margin: auto;
+            color: #c7c7c7;
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+        /* =========================================================
+           HERO METRICS
+        ========================================================= */
+
+        .hero-metrics {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+            gap: 1.5rem;
+        }
+
+        .hero-metric {
+            background: rgba(15,15,15,0.72);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 18px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: 0.35s ease;
+            box-shadow:
+                0 0 25px rgba(220,20,60,0.08),
+                inset 0 0 30px rgba(255,255,255,0.02);
+        }
+
+        .hero-metric:hover {
+            transform: translateY(-6px);
+            border-color: rgba(220,20,60,0.4);
+            box-shadow:
+                0 0 35px rgba(220,20,60,0.18),
+                inset 0 0 30px rgba(255,255,255,0.02);
+        }
+
+        .metric-value {
+            display: block;
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #a7a7a7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        /* =========================================================
+           MAIN GRID
+        ========================================================= */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .glass-card {
+            background: rgba(15,15,15,0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow:
+                0 0 25px rgba(220,20,60,0.08),
+                inset 0 0 20px rgba(255,255,255,0.02);
+        }
+
+        /* =========================================================
+           CHART
+        ========================================================= */
+
+        .chart-container {
+            height: 450px;
+            overflow: hidden;
+        }
+
+        /* =========================================================
+           SYSTEM STATUS
+        ========================================================= */
+
+        .status-card {
+            padding: 2rem;
+        }
+
+        .status-title {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            color: #d0d0d0;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00ff88;
+            margin-right: 1rem;
+            box-shadow: 0 0 10px #00ff88;
+        }
+
+        /* =========================================================
+           FEATURE GRID
+        ========================================================= */
+
+        .feature-grid {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: rgba(15,15,15,0.72);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 18px;
+            padding: 2rem;
+            transition: 0.35s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(220,20,60,0.35);
+        }
+
+        .feature-card i {
+            color: #DC143C;
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #bdbdbd;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           BACKTEST
+        ========================================================= */
+
+        .backtest-section {
+            margin-top: 5rem;
+        }
+
+        .backtest-container {
+            margin-top: 3rem;
+            overflow: hidden;
+            border-radius: 22px;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow:
+                0 0 45px rgba(220,20,60,0.12),
+                inset 0 0 25px rgba(255,255,255,0.02);
+        }
+
+        .backtest-image {
+            width: 100%;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .backtest-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* =========================================================
+           STRATEGY GRID
+        ========================================================= */
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(420px,1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .strategy-card {
+            background: rgba(15,15,15,0.72);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .strategy-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .strategy-card p {
+            color: #c5c5c5;
+            line-height: 1.9;
+        }
+
+        .mini-stats {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .mini-stat {
+            background: rgba(255,255,255,0.03);
+            border-radius: 14px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .mini-stat h4 {
+            margin: 0;
+            font-size: 1.7rem;
+            color: #fff;
+        }
+
+        .mini-stat span {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================================
            TERMINAL
-        ========================== */
+        ========================================================= */
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .tech-box {
+            background: rgba(15,15,15,0.72);
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+            min-height: 420px;
+        }
 
         .terminal-header {
             display: flex;
-            gap: 5px;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .dot {
-            height: 12px;
             width: 12px;
+            height: 12px;
             border-radius: 50%;
-            display: inline-block;
+            margin-right: 6px;
         }
 
-        .dot.red { background-color: #ff5f56; }
-        .dot.yellow { background-color: #ffbd2e; }
-        .dot.green { background-color: #27c93f; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .terminal-title {
+            margin-left: 1rem;
+            color: #8c8c8c;
+            font-size: 0.85rem;
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+        }
 
         .terminal-text {
-            color: #00ff00;
-            text-shadow: 0 0 5px #00ff00;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 13px;
-            line-height: 1.6;
+            color: #00ff88;
+            font-family: "Courier New", monospace;
+            line-height: 1.8;
+            font-size: 0.9rem;
         }
 
-        /* =========================
-           JSON VIEWER
-        ========================== */
-
         .json-text {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 13px;
             color: #d4d4d4;
-            overflow-y: auto;
-            height: 100%;
+            font-family: "Courier New", monospace;
+            line-height: 1.8;
+            font-size: 0.88rem;
+            overflow-x: auto;
         }
 
         .j-key { color: #9cdcfe; }
@@ -159,88 +439,52 @@
         .j-num { color: #b5cea8; }
         .j-bracket { color: #569cd6; }
 
-        /* =========================
-           PERFORMANCE SECTION
-        ========================== */
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 5rem;
         }
 
-        .stat-card {
-            background: #0c0c0c;
-            border: 1px solid #333;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
+        .btn-back {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            background: #DC143C;
+            color: white;
+            text-decoration: none;
             transition: 0.3s ease;
         }
 
-        .stat-card:hover {
-            border-color: #DC143C;
-            transform: translateY(-4px);
-            box-shadow: 0 0 20px rgba(220,20,60,0.2);
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(220,20,60,0.3);
         }
 
-        .stat-card h3 {
-            color: #DC143C;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-card p {
-            margin: 0;
-            color: #aaa;
-        }
-
-        .backtest-container {
-            width: 100%;
-            background: #0c0c0c;
-            border: 2px solid #333;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow:
-                0 0 20px rgba(220,20,60,0.15),
-                inset 0 0 20px rgba(0,0,0,0.7);
-            transition: all 0.3s ease;
-        }
-
-        .backtest-container:hover {
-            transform: translateY(-4px);
-            box-shadow:
-                0 0 35px rgba(220,20,60,0.25),
-                inset 0 0 20px rgba(0,0,0,0.7);
-        }
-
-        .backtest-image {
-            width: 100%;
-            display: block;
-            object-fit: contain;
-        }
-
-        /* =========================
+        /* =========================================================
            MOBILE
-        ========================== */
+        ========================================================= */
 
-        @media (max-width: 860px) {
+        @media(max-width: 960px) {
 
-            .project-row,
-            .tech-grid {
-                flex-direction: column;
-            }
-
-            .tech-box {
-                width: 100%;
-                height: auto;
-                min-height: 300px;
+            .project-grid,
+            .tech-grid,
+            .strategy-grid {
+                grid-template-columns: 1fr;
             }
 
             .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .metric-value {
                 font-size: 2rem;
             }
+
         }
 
     </style>
@@ -248,283 +492,377 @@
 
 <body>
 
-    <div id="particles-bg"></div>
+<div id="particles-bg"></div>
 
-    <!-- HEADER -->
-    <header id="header" style="min-height: auto; padding-bottom: 2rem;">
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-        <nav id="nav" data-aos="fade-in">
+<header id="header">
 
-            <div class="container nav-container">
+    <div class="container nav-container">
 
-                <a href="index.html" id="logo">
-                    <img src="img/Logo.png" alt="Name Logo">
-                </a>
+        <a href="index.html" id="logo">
+            <img src="img/Logo.png" alt="Logo">
+        </a>
 
-                <ul class="hide-for-mobile nav-links flex">
-                    <li>
-                        <a href="index.html"
-                           class="link"
-                           style="color: white; text-decoration: none;">
-                            Home
-                        </a>
-                    </li>
-                </ul>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+        </ul>
 
+    </div>
+
+</header>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="container" data-aos="fade-up">
+
+        <h1 class="hero-title">
+            Project Lazarus
+            <span class="text-red">Quantitative Trading Intelligence</span>
+        </h1>
+
+        <p class="hero-description">
+
+            Project Lazarus is a multi-agent algorithmic trading intelligence framework engineered in Python to identify, simulate, and distribute high-probability intraday options setups across equities and indices in real time. The infrastructure combines multi-timeframe signal analysis, autonomous trade management, Discord alert automation, and statistical backtesting into a unified execution and analytics platform.
+
+        </p>
+
+        <!-- HERO METRICS -->
+
+        <div class="hero-metrics">
+
+            <div class="hero-metric">
+                <span class="metric-value counter" data-target="5272">0</span>
+                <span class="metric-label">45-Day Net P&L</span>
             </div>
 
-        </nav>
-
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <section class="details-section">
-
-        <div class="container" data-aos="fade-up">
-
-            <h1 class="hero-title">
-                Project Lazarus: Algorithmic Scanner
-            </h1>
-
-            <!-- TOP SECTION -->
-            <div class="project-row">
-
-                <!-- LEFT -->
-                <div class="project-left">
-
-                    <div class="tradingview-widget-container"
-                         style="height: 400px;
-                                width: 100%;
-                                border-radius: 8px;
-                                overflow: hidden;
-                                border: 2px solid #555;">
-
-                        <div id="tradingview_lazarus"
-                             style="height: calc(100% - 32px);
-                                    width: 100%;">
-                        </div>
-
-                        <script type="text/javascript"
-                                src="https://s3.tradingview.com/tv.js">
-                        </script>
-
-                        <script type="text/javascript">
-
-                            new TradingView.widget({
-                                "autosize": true,
-                                "symbol": "NASDAQ:QQQ",
-                                "interval": "5",
-                                "timezone": "Etc/UTC",
-                                "theme": "dark",
-                                "style": "1",
-                                "locale": "en",
-                                "enable_publishing": false,
-                                "backgroundColor": "#181a1b",
-                                "gridColor": "#2e3031",
-                                "hide_top_toolbar": true,
-                                "hide_legend": true,
-                                "save_image": false,
-                                "container_id": "tradingview_lazarus"
-                            });
-
-                        </script>
-
-                    </div>
-
-                </div>
-
-                <!-- RIGHT -->
-                <div class="project-right">
-
-                    <p>
-                        <strong>Project Lazarus</strong> is a multi-agent
-                        algorithmic trading intelligence system engineered in Python
-                        to identify and distribute high-probability intraday options
-                        setups in real time. The platform operates through two
-                        independent autonomous bots —
-                        the <span class="text-blue">Main Bot</span>
-                        and the <span class="text-blue">Lotto Bot</span> —
-                        each designed for distinct market conditions and risk profiles.
-                    </p>
-
-                    <p>
-                        The Main Bot focuses on momentum continuation strategies using
-                        multi-timeframe confirmation logic across QQQ, SPY, NVDA, META,
-                        AAPL, TSLA, and SPX. The engine continuously processes live
-                        5-minute and 15-minute OHLCV market data streams through
-                        Pandas and TA-Lib indicator pipelines, calculating EMA crossovers,
-                        VWAP positioning, RSI momentum, volatility regimes, and abnormal
-                        volume expansion.
-                    </p>
-
-                    <p>
-                        When bullish breakout conditions align, the system dynamically
-                        selects high-liquidity ATM 0DTE option contracts, calculates
-                        risk-adjusted targets and stop-loss levels, and dispatches fully
-                        formatted Discord intelligence alerts in real time.
-                    </p>
-
-                    <p>
-                        The Lotto Bot operates as a separate high-risk reversal scanner
-                        optimized for far OTM 0DTE contracts. It specializes in detecting
-                        failed opening range breakouts, VWAP rejections, RSI divergences,
-                        EMA reclaim failures, and exhaustion candle formations using
-                        custom reversal-detection logic.
-                    </p>
-
-                    <p>
-                        Beyond signal generation, Lazarus includes a complete automated
-                        trade management and analytics infrastructure. The framework
-                        performs live P&amp;L simulation, end-of-day trade reconciliation,
-                        CSV report generation, futures monitoring for NQ and YM contracts,
-                        statistical backtesting visualization, and automated Discord
-                        reporting.
-                    </p>
-
-                </div>
-
+            <div class="hero-metric">
+                <span class="metric-value counter" data-target="416">0</span>
+                <span class="metric-label">Simulated Trades</span>
             </div>
 
-            
-            <!-- PERFORMANCE -->
-            <section class="details-section"
-                     style="padding-top:3rem;">
+            <div class="hero-metric">
+                <span class="metric-value">45.4%</span>
+                <span class="metric-label">Combined Win Rate</span>
+            </div>
 
-                <div class="container" data-aos="fade-up">
-
-                    <h2 class="main-font"
-                        style="text-align:center;
-                               margin-bottom:2rem;
-                               color:#fff;">
-
-                        Strategy
-                        <span class="text-blue">Performance</span>
-
-                    </h2>
-
-                    <div class="stats-grid">
-
-                        <div class="stat-card">
-                            <h3>$3K+</h3>
-                            <p>Peak Combined P&amp;L</p>
-                        </div>
-
-                        <div class="stat-card">
-                            <h3>54%</h3>
-                            <p>Main Bot Win Rate</p>
-                        </div>
-
-                        <div class="stat-card">
-                            <h3>230</h3>
-                            <p>Lotto Trades</p>
-                        </div>
-
-                        <div class="stat-card">
-                            <h3>+29.9%</h3>
-                            <p>Avg Lotto Return</p>
-                        </div>
-
-                    </div>
-
-                    <p style="text-align:center;
-                              max-width:900px;
-                              margin:0 auto 2rem auto;
-                              color:#ccc;">
-
-                        Historical performance analytics generated from the Lazarus
-                        backtesting engine. The framework evaluates both the
-                        momentum continuation strategy and the high-risk Lotto
-                        reversal system using historical QQQ market data,
-                        multi-timeframe validation, and automated signal replay.
-
-                    </p>
-
-                    <div class="backtest-container">
-
-                        <img src="img/lazarus_backtest_2026-05-22.png"
-                             alt="Lazarus Backtest Results"
-                             class="backtest-image">
-
-                    </div>
-
-                </div>
-
-            </section>
+            <div class="hero-metric">
+                <span class="metric-value">24 / 34</span>
+                <span class="metric-label">Green Trading Days</span>
+            </div>
 
         </div>
 
-<!-- UNDER THE HOOD -->
-            <h2 class="main-font"
-                style="text-align:center;
-                       margin-top:3rem;
-                       color:#fff;">
+        <!-- MAIN GRID -->
 
-                Under The
-                <span class="main-font text-blue">Hood</span>
+        <div class="project-grid">
 
-            </h2>
+            <!-- CHART -->
 
-            <!-- TECH GRID -->
-            <div class="tech-grid"
-                 data-aos="fade-up"
-                 data-aos-delay="200">
+            <div class="glass-card chart-container">
 
-                <!-- TERMINAL -->
-                <div class="tech-box">
+                <div id="tradingview_lazarus" style="height:100%;"></div>
 
-                    <div class="terminal-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+            </div>
 
-                        <span style="color:#888;
-                                     margin-left:10px;
-                                     font-size:12px;">
+            <!-- STATUS -->
 
-                            lazarus_engine.py - Edge Node
+            <div class="glass-card status-card">
 
-                        </span>
+                <h3 class="status-title">
+                    System Status
+                </h3>
+
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    Market Data Feeds Online
+                </div>
+
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    Multi-Timeframe Scanner Active
+                </div>
+
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    Discord Dispatch Engine Operational
+                </div>
+
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    Backtest Replay Framework Ready
+                </div>
+
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    Futures Monitoring Active (NQ / YM)
+                </div>
+
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    Signal Latency: 84ms
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     FEATURES
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Trading Infrastructure
+        </h2>
+
+        <p class="section-subtitle">
+
+            The Lazarus framework processes synchronized 5-minute and 15-minute market feeds across QQQ, SPY, SPX, NVDA, META, TSLA, and AAPL using custom technical analysis pipelines, reversal-detection logic, and automated risk management systems.
+
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Multi-Timeframe Engine</h3>
+                <p>
+                    Simultaneously analyzes 5m and 15m OHLCV structures using EMA crossovers, VWAP positioning, RSI momentum, and abnormal volume expansion detection.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-brain"></i>
+                <h3>Signal Intelligence</h3>
+                <p>
+                    Detects breakout continuation patterns, VWAP rejections, failed ORBs, RSI divergences, EMA reclaim/loss structures, and exhaustion reversals.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Execution Layer</h3>
+                <p>
+                    Dynamically selects ATM and far OTM 0DTE option contracts based on directional bias, delta exposure, volatility conditions, and liquidity.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-server"></i>
+                <h3>Discord Intelligence</h3>
+                <p>
+                    Generates structured JSON payloads and dispatches real-time trade intelligence alerts directly into Discord through webhook automation.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     BACKTEST
+========================================================= -->
+
+<section class="backtest-section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Quantitative Performance Analytics
+        </h2>
+
+        <p class="section-subtitle">
+
+            Historical replay infrastructure simulated 416 intraday options trades across a 45-day period from April 7th to May 22nd, 2026, generating a combined simulated net performance of +$5,272 with 24 green trading days out of 34 sessions.
+
+        </p>
+
+        <div class="backtest-container">
+
+            <img
+                src="img/lazarus_backtest_2026-05-22.png"
+                alt="Lazarus Backtest"
+                class="backtest-image"
+            >
+
+        </div>
+
+        <!-- STRATEGY GRID -->
+
+        <div class="strategy-grid">
+
+            <!-- MAIN -->
+
+            <div class="strategy-card">
+
+                <h3>
+                    Main Bot —
+                    <span class="text-red">Momentum Continuation Engine</span>
+                </h3>
+
+                <p>
+
+                    The Main Bot specializes in high-conviction continuation setups using EMA alignment, VWAP positioning, RSI acceleration, and abnormal volume confirmation. The framework targets ATM 0DTE contracts using structured stop-loss and profit-target logic.
+
+                </p>
+
+                <div class="mini-stats">
+
+                    <div class="mini-stat">
+                        <h4>76</h4>
+                        <span>Trades</span>
                     </div>
 
-                    <div id="terminal-output"
-                         class="terminal-text">
+                    <div class="mini-stat">
+                        <h4>59.2%</h4>
+                        <span>Win Rate</span>
+                    </div>
+
+                    <div class="mini-stat">
+                        <h4>$1,760</h4>
+                        <span>Net P&L</span>
+                    </div>
+
+                    <div class="mini-stat">
+                        <h4>+460%</h4>
+                        <span>Best Trade</span>
                     </div>
 
                 </div>
 
-                <!-- JSON -->
-                <div class="tech-box"
-                     style="background-color:#1e1e1e;">
+            </div>
 
-                    <div class="terminal-header">
+            <!-- LOTTO -->
 
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+            <div class="strategy-card">
 
-                        <span style="color:#888;
-                                     margin-left:10px;
-                                     font-size:12px;">
+                <h3>
+                    Lotto Bot —
+                    <span class="text-red">Reversal Intelligence Engine</span>
+                </h3>
 
-                            discord_payload.json
+                <p>
 
-                        </span>
+                    The Lotto framework operates independently as a high-risk asymmetric reversal scanner optimized for explosive convexity and far OTM 0DTE contracts using VWAP rejection recovery, failed ORBs, RSI divergence detection, and EMA reclaim logic.
 
+                </p>
+
+                <div class="mini-stats">
+
+                    <div class="mini-stat">
+                        <h4>340</h4>
+                        <span>Trades</span>
                     </div>
 
-<pre class="json-text" style="margin:0;">
+                    <div class="mini-stat">
+                        <h4>42.4%</h4>
+                        <span>Win Rate</span>
+                    </div>
+
+                    <div class="mini-stat">
+                        <h4>$3,511</h4>
+                        <span>Net P&L</span>
+                    </div>
+
+                    <div class="mini-stat">
+                        <h4>+1028%</h4>
+                        <span>Best Trade</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     UNDER THE HOOD
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Under The Hood
+        </h2>
+
+        <div class="tech-grid">
+
+            <!-- TERMINAL -->
+
+            <div class="tech-box">
+
+                <div class="terminal-header">
+
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+
+                    <div class="terminal-title">
+                        lazarus_engine.py
+                    </div>
+
+                </div>
+
+                <div class="terminal-body">
+
+                    <div id="terminal-output" class="terminal-text"></div>
+
+                </div>
+
+            </div>
+
+            <!-- JSON -->
+
+            <div class="tech-box">
+
+                <div class="terminal-header">
+
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+
+                    <div class="terminal-title">
+                        discord_payload.json
+                    </div>
+
+                </div>
+
+                <div class="terminal-body">
+
+<pre class="json-text">
 <span class="j-bracket">{</span>
+  <span class="j-key">"signal_id"</span>: <span class="j-str">"LZ-44291"</span>,
   <span class="j-key">"system"</span>: <span class="j-str">"Lazarus Main Bot"</span>,
   <span class="j-key">"signal"</span>: <span class="j-str">"Volume Breakout BULL"</span>,
   <span class="j-key">"ticker"</span>: <span class="j-str">"QQQ"</span>,
   <span class="j-key">"direction"</span>: <span class="j-str">"LONG CALL"</span>,
-  <span class="j-key">"timeframe"</span>: <span class="j-str">"5m + 15m MTF"</span>,
-  <span class="j-key">"rsi"</span>: <span class="j-num">68.4</span>,
-  <span class="j-key">"vwap_alignment"</span>: <span class="j-str">"BULLISH"</span>,
-  <span class="j-key">"news_conviction"</span>: <span class="j-str">"🟢 BULLISH"</span>,
+  <span class="j-key">"confidence"</span>: <span class="j-num">92.4</span>,
+  <span class="j-key">"latency_ms"</span>: <span class="j-num">84</span>,
   <span class="j-key">"contract"</span>: <span class="j-str">"QQQ 445C 0DTE"</span>,
   <span class="j-key">"risk_model"</span>: <span class="j-str">"SL -35% | TP +50%"</span>,
-  <span class="j-key">"status"</span>: <span class="j-str">"DISPATCHED"</span>
+  <span class="j-key">"execution_status"</span>: <span class="j-str">"DISPATCHED"</span>
 <span class="j-bracket">}</span>
 </pre>
 
@@ -532,99 +870,151 @@
 
             </div>
 
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="footer"
-            class="footer"
-            style="margin-top:3rem;
-                   border-top:1px solid #333;">
-
-        <div class="container"
-             style="text-align:center;
-                    padding:2rem 0;">
-
-            <a href="index.html"
-               class="btn-blue"
-               style="text-decoration:none;
-                      color:white;">
-
-                &larr; Back to Portfolio
-
-            </a>
-
         </div>
 
-    </footer>
+    </div>
 
-    <!-- LIBRARIES -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<footer>
 
-    <!-- MAIN JS -->
-    <script>
+    <a href="index.html" class="btn-back">
+        ← Back to Portfolio
+    </a>
 
-        particlesJS.load('particles-bg', './particles.json');
-        AOS.init();
+</footer>
 
-        const lines = [
+<!-- =========================================================
+     LIBRARIES
+========================================================= -->
 
-            "Booting Lazarus multi-agent framework...",
-            "Loading Pandas + TA indicator engine...",
-            "Connecting to Yahoo Finance market feeds...",
-            "[OK] 5m / 15m MTF scanner initialized.",
-            "Monitoring QQQ, SPY, NVDA, META...",
-            "Calculating EMA9 / EMA21 crossovers...",
-            "Analyzing VWAP alignment + RSI momentum...",
-            "Running news sentiment conviction engine...",
-            "⚡ Volume Breakout BULL detected on QQQ.",
-            "Selecting optimal 0DTE option contract...",
-            "Computing SL/TP risk model...",
-            "Dispatching Discord intelligence payload...",
-            "[200 OK] Trade alert successfully deployed.",
-            "Awaiting next signal..."
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://s3.tradingview.com/tv.js"></script>
 
-        ];
+<!-- =========================================================
+     JS
+========================================================= -->
 
-        let lineIndex = 0;
+<script>
 
-        const terminal = document.getElementById("terminal-output");
+    particlesJS.load('particles-bg', './particles.json');
 
-        function typeLine() {
+    AOS.init();
 
-            if (lineIndex < lines.length) {
+    // TradingView
 
-                terminal.innerHTML +=
-                    "<span>> " +
-                    lines[lineIndex] +
-                    "</span><br>";
+    new TradingView.widget({
+        "autosize": true,
+        "symbol": "NASDAQ:QQQ",
+        "interval": "5",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "enable_publishing": false,
+        "backgroundColor": "#0a0a0b",
+        "gridColor": "#2a2a2a",
+        "hide_top_toolbar": true,
+        "hide_legend": true,
+        "save_image": false,
+        "container_id": "tradingview_lazarus"
+    });
 
-                lineIndex++;
+    // Terminal
 
-                setTimeout(typeLine,
-                    Math.random() * 600 + 300);
+    const lines = [
 
-            } else {
+        "Booting Lazarus multi-agent framework...",
+        "Loading Pandas + TA-Lib indicator engine...",
+        "Connecting to market data feeds...",
+        "[OK] 5m / 15m MTF scanner initialized.",
+        "Monitoring QQQ, SPY, NVDA, META...",
+        "Calculating EMA9 / EMA21 crossovers...",
+        "Analyzing VWAP alignment + RSI momentum...",
+        "⚡ Volume Breakout BULL detected on QQQ.",
+        "Selecting optimal 0DTE option contract...",
+        "Computing SL/TP risk model...",
+        "Dispatching Discord intelligence payload...",
+        "[200 OK] Trade alert deployed.",
+        "Awaiting next signal..."
 
-                setTimeout(() => {
+    ];
 
-                    terminal.innerHTML = "";
-                    lineIndex = 0;
-                    typeLine();
+    let lineIndex = 0;
 
-                }, 4000);
+    const terminal = document.getElementById("terminal-output");
 
-            }
+    function typeLine() {
+
+        if (lineIndex < lines.length) {
+
+            terminal.innerHTML +=
+                "<span>> " +
+                lines[lineIndex] +
+                "</span><br>";
+
+            lineIndex++;
+
+            setTimeout(typeLine,
+                Math.random() * 600 + 300);
+
+        } else {
+
+            setTimeout(() => {
+
+                terminal.innerHTML = "";
+                lineIndex = 0;
+                typeLine();
+
+            }, 4000);
 
         }
 
-        setTimeout(typeLine, 1000);
+    }
 
-    </script>
+    setTimeout(typeLine, 1000);
+
+    // Counter Animation
+
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+
+        const updateCounter = () => {
+
+            const target = +counter.getAttribute('data-target');
+
+            const current = +counter.innerText.replace(/,/g,'');
+
+            const increment = target / 60;
+
+            if(current < target){
+
+                counter.innerText =
+                    Math.ceil(current + increment).toLocaleString();
+
+                setTimeout(updateCounter, 25);
+
+            } else {
+
+                counter.innerText =
+                    target.toLocaleString();
+
+            }
+
+        };
+
+        updateCounter();
+
+    });
+
+</script>
 
 </body>
 </html>
