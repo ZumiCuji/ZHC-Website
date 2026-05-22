@@ -1296,3 +1296,36 @@ border-radius: 8px; /* optional, just for looks */
         display: block; /* Makes the <br> tag active */
     }
 }
+
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #0c0c0c;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: #DC143C;
+    transform: translateY(-3px);
+}
+
+.stat-card h3 {
+    color: #DC143C;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    color: #aaa;
+    margin: 0;
+}

@@ -5,212 +5,624 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Lazarus - Zumi Cuji</title>
-    
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
     <style>
-        /* --- Core Theme Overrides --- */
-        body { color: white; background: #181a1b; font-family: "Inter", sans-serif; }
-        #particles-bg { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
-        .details-section, .footer { background: transparent !important; }
-        .text-blue { color: #DC143C !important; } /* Red Branding */
-        .bg-blue { background-color: #DC143C !important; border-color: #DC143C !important; }
-        
-        /* --- Layout Styles --- */
-        .details-section { padding: 4rem 0; }
-        .hero-title { font-family: "Alfa Slab One", "Poppins"; font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
-        .project-row { display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 3rem; }
-        .project-left { flex: 1; }
-        .project-right { flex: 1.5; text-align: left; }
-        .details-section p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; }
-        
-        /* --- Tech Showcase Grid --- */
-        .tech-grid { display: flex; gap: 2rem; margin-top: 2rem; }
-        .tech-box { flex: 1; background-color: #0c0c0c; border: 2px solid #333; border-radius: 8px; padding: 15px; height: 350px; overflow: hidden; box-shadow: inset 0 0 10px #000; position: relative; }
-        
-        /* --- Terminal Specifics --- */
-        .terminal-header { display: flex; gap: 5px; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .dot { height: 12px; width: 12px; border-radius: 50%; display: inline-block; }
-        .dot.red { background-color: #ff5f56; } .dot.yellow { background-color: #ffbd2e; } .dot.green { background-color: #27c93f; }
-        .terminal-text { color: #00ff00; text-shadow: 0 0 5px #00ff00; font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1.6; }
-        
-        /* --- JSON Specifics --- */
-        .json-text { font-family: 'Courier New', Courier, monospace; font-size: 13px; color: #d4d4d4; overflow-y: auto; height: 100%; }
-        .j-key { color: #9cdcfe; } .j-str { color: #ce9178; } .j-num { color: #b5cea8; } .j-bracket { color: #569cd6; }
+
+        /* =========================
+           GLOBAL THEME
+        ========================== */
+
+        body {
+            color: white;
+            background: #181a1b;
+            font-family: "Inter", sans-serif;
+            overflow-x: hidden;
+        }
+
+        #particles-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .details-section,
+        .footer {
+            background: transparent !important;
+        }
+
+        .text-blue {
+            color: #DC143C !important;
+        }
+
+        .bg-blue {
+            background-color: #DC143C !important;
+            border-color: #DC143C !important;
+        }
+
+        .details-section {
+            padding: 4rem 0;
+        }
+
+        .hero-title {
+            font-family: "Alfa Slab One", "Poppins";
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .project-row {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+        }
+
+        .project-left {
+            flex: 1;
+        }
+
+        .project-right {
+            flex: 1.5;
+            text-align: left;
+        }
+
+        .details-section p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: #d0d0d0;
+        }
+
+        /* =========================
+           TECH GRID
+        ========================== */
+
+        .tech-grid {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tech-box {
+            flex: 1;
+            background-color: #0c0c0c;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 15px;
+            height: 350px;
+            overflow: hidden;
+            box-shadow:
+                inset 0 0 10px #000,
+                0 0 20px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        /* =========================
+           TERMINAL
+        ========================== */
+
+        .terminal-header {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot.red { background-color: #ff5f56; }
+        .dot.yellow { background-color: #ffbd2e; }
+        .dot.green { background-color: #27c93f; }
+
+        .terminal-text {
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           JSON VIEWER
+        ========================== */
+
+        .json-text {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            color: #d4d4d4;
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        .j-key { color: #9cdcfe; }
+        .j-str { color: #ce9178; }
+        .j-num { color: #b5cea8; }
+        .j-bracket { color: #569cd6; }
+
+        /* =========================
+           PERFORMANCE SECTION
+        ========================== */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: #0c0c0c;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: #DC143C;
+            transform: translateY(-4px);
+            box-shadow: 0 0 20px rgba(220,20,60,0.2);
+        }
+
+        .stat-card h3 {
+            color: #DC143C;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            margin: 0;
+            color: #aaa;
+        }
+
+        .backtest-container {
+            width: 100%;
+            background: #0c0c0c;
+            border: 2px solid #333;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow:
+                0 0 20px rgba(220,20,60,0.15),
+                inset 0 0 20px rgba(0,0,0,0.7);
+            transition: all 0.3s ease;
+        }
+
+        .backtest-container:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 0 35px rgba(220,20,60,0.25),
+                inset 0 0 20px rgba(0,0,0,0.7);
+        }
+
+        .backtest-image {
+            width: 100%;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
 
         @media (max-width: 860px) {
-            .project-row, .tech-grid { flex-direction: column; }
-            .tech-box { width: 100%; height: auto; min-height: 300px; }
+
+            .project-row,
+            .tech-grid {
+                flex-direction: column;
+            }
+
+            .tech-box {
+                width: 100%;
+                height: auto;
+                min-height: 300px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
         }
+
     </style>
 </head>
+
 <body>
+
     <div id="particles-bg"></div>
 
     <!-- HEADER -->
     <header id="header" style="min-height: auto; padding-bottom: 2rem;">
+
         <nav id="nav" data-aos="fade-in">
+
             <div class="container nav-container">
-                <a href="index.html" id="logo"><img src="img/Logo.png" alt="Name Logo"></a>
+
+                <a href="index.html" id="logo">
+                    <img src="img/Logo.png" alt="Name Logo">
+                </a>
+
                 <ul class="hide-for-mobile nav-links flex">
-                    <li><a href="index.html" class="link" style="color: white; text-decoration: none;">Home</a></li>
+                    <li>
+                        <a href="index.html"
+                           class="link"
+                           style="color: white; text-decoration: none;">
+                            Home
+                        </a>
+                    </li>
                 </ul>
+
             </div>
+
         </nav>
+
     </header>
 
-    <!-- PROJECT DETAILS SECTION -->
+    <!-- MAIN CONTENT -->
     <section class="details-section">
+
         <div class="container" data-aos="fade-up">
-            
-            <h1 class="hero-title">Project Lazarus: Algorithmic Scanner</h1>
-            
-            <!-- TOP ROW: Chart & Description -->
+
+            <h1 class="hero-title">
+                Project Lazarus: Algorithmic Scanner
+            </h1>
+
+            <!-- TOP SECTION -->
             <div class="project-row">
+
+                <!-- LEFT -->
                 <div class="project-left">
-                    <!-- TRADINGVIEW CHART -->
-                    <div class="tradingview-widget-container" style="height: 400px; width: 100%; border-radius: 8px; overflow: hidden; border: 2px solid #555;">
-                        <div id="tradingview_lazarus" style="height: calc(100% - 32px); width: 100%;"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-                        <script type="text/javascript">
-                        new TradingView.widget({
-                            "autosize": true,
-                            "symbol": "NASDAQ:QQQ",
-                            "interval": "5",
-                            "timezone": "Etc/UTC",
-                            "theme": "dark",
-                            "style": "1",
-                            "locale": "en",
-                            "enable_publishing": false,
-                            "backgroundColor": "#181a1b",
-                            "gridColor": "#2e3031",
-                            "hide_top_toolbar": true,
-                            "hide_legend": true,
-                            "save_image": false,
-                            "container_id": "tradingview_lazarus"
-                        });
+
+                    <div class="tradingview-widget-container"
+                         style="height: 400px;
+                                width: 100%;
+                                border-radius: 8px;
+                                overflow: hidden;
+                                border: 2px solid #555;">
+
+                        <div id="tradingview_lazarus"
+                             style="height: calc(100% - 32px);
+                                    width: 100%;">
+                        </div>
+
+                        <script type="text/javascript"
+                                src="https://s3.tradingview.com/tv.js">
                         </script>
+
+                        <script type="text/javascript">
+
+                            new TradingView.widget({
+                                "autosize": true,
+                                "symbol": "NASDAQ:QQQ",
+                                "interval": "5",
+                                "timezone": "Etc/UTC",
+                                "theme": "dark",
+                                "style": "1",
+                                "locale": "en",
+                                "enable_publishing": false,
+                                "backgroundColor": "#181a1b",
+                                "gridColor": "#2e3031",
+                                "hide_top_toolbar": true,
+                                "hide_legend": true,
+                                "save_image": false,
+                                "container_id": "tradingview_lazarus"
+                            });
+
+                        </script>
+
                     </div>
+
                 </div>
-                
+
+                <!-- RIGHT -->
                 <div class="project-right">
+
                     <p>
-                        <strong>Project Lazarus</strong> is a custom, Python-based algorithmic market scanner designed to monitor the Nasdaq-100 (QQQ) in real-time. The mission objective was to build a highly responsive intelligence pipeline that identifies high-probability options trading setups using live market data.
+                        <strong>Project Lazarus</strong> is a multi-agent
+                        algorithmic trading intelligence system engineered in Python
+                        to identify and distribute high-probability intraday options
+                        setups in real time. The platform operates through two
+                        independent autonomous bots —
+                        the <span class="text-blue">Main Bot</span>
+                        and the <span class="text-blue">Lotto Bot</span> —
+                        each designed for distinct market conditions and risk profiles.
                     </p>
+
                     <p>
-                        To achieve real-time accuracy, the system leverages high-frequency REST polling via the Finnhub API. The incoming data streams are processed using Pandas, where an internal buffer calculates a 14-period Relative Strength Index (RSI) and a 5-period Simple Moving Average (SMA). This mathematical filtering strips out market noise and isolates true momentum breakouts.
+                        The Main Bot focuses on momentum continuation strategies using
+                        multi-timeframe confirmation logic across QQQ, SPY, NVDA, META,
+                        AAPL, TSLA, and SPX. The engine continuously processes live
+                        5-minute and 15-minute OHLCV market data streams through
+                        Pandas and TA-Lib indicator pipelines, calculating EMA crossovers,
+                        VWAP positioning, RSI momentum, volatility regimes, and abnormal
+                        volume expansion.
                     </p>
+
                     <p>
-                        When the algorithmic conditions are met, the engine dynamically calculates the relevant Zero Days to Expiration (0DTE) strike prices based on the underlying spot price. The bot then formats this intelligence into a professional JSON payload and dispatches it directly to a secure Discord server via Webhooks.
+                        When bullish breakout conditions align, the system dynamically
+                        selects high-liquidity ATM 0DTE option contracts, calculates
+                        risk-adjusted targets and stop-loss levels, and dispatches fully
+                        formatted Discord intelligence alerts in real time.
                     </p>
+
+                    <p>
+                        The Lotto Bot operates as a separate high-risk reversal scanner
+                        optimized for far OTM 0DTE contracts. It specializes in detecting
+                        failed opening range breakouts, VWAP rejections, RSI divergences,
+                        EMA reclaim failures, and exhaustion candle formations using
+                        custom reversal-detection logic.
+                    </p>
+
+                    <p>
+                        Beyond signal generation, Lazarus includes a complete automated
+                        trade management and analytics infrastructure. The framework
+                        performs live P&amp;L simulation, end-of-day trade reconciliation,
+                        CSV report generation, futures monitoring for NQ and YM contracts,
+                        statistical backtesting visualization, and automated Discord
+                        reporting.
+                    </p>
+
                 </div>
+
             </div>
 
-            <h2 class="main-font" style="text-align: center; margin-top: 3rem; color: #fff;">Under The <span class="main-font text-blue">Hood</span></h2>
+            <!-- UNDER THE HOOD -->
+            <h2 class="main-font"
+                style="text-align:center;
+                       margin-top:3rem;
+                       color:#fff;">
 
-            <!-- BOTTOM GRID: Terminal & JSON -->
-            <div class="tech-grid" data-aos="fade-up" data-aos-delay="200">
-                
-                <!-- LIVE TERMINAL SIMULATOR -->
+                Under The
+                <span class="main-font text-blue">Hood</span>
+
+            </h2>
+
+            <!-- TECH GRID -->
+            <div class="tech-grid"
+                 data-aos="fade-up"
+                 data-aos-delay="200">
+
+                <!-- TERMINAL -->
                 <div class="tech-box">
+
                     <div class="terminal-header">
-                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                        <span style="color: #888; margin-left: 10px; font-size: 12px;">lazarus_engine.py - Edge Node</span>
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+
+                        <span style="color:#888;
+                                     margin-left:10px;
+                                     font-size:12px;">
+
+                            lazarus_engine.py - Edge Node
+
+                        </span>
                     </div>
-                    <div id="terminal-output" class="terminal-text"></div>
+
+                    <div id="terminal-output"
+                         class="terminal-text">
+                    </div>
+
                 </div>
 
-                <!-- API JSON PAYLOAD VIEWER -->
-                <div class="tech-box" style="background-color: #1e1e1e;">
+                <!-- JSON -->
+                <div class="tech-box"
+                     style="background-color:#1e1e1e;">
+
                     <div class="terminal-header">
-                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-                        <span style="color: #888; margin-left: 10px; font-size: 12px;">discord_payload.json</span>
+
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+
+                        <span style="color:#888;
+                                     margin-left:10px;
+                                     font-size:12px;">
+
+                            discord_payload.json
+
+                        </span>
+
                     </div>
-                    <pre class="json-text" style="margin: 0;">
+
+<pre class="json-text" style="margin:0;">
 <span class="j-bracket">{</span>
-  <span class="j-key">"username"</span>: <span class="j-str">"Lazarus Scanner"</span>,
-  <span class="j-key">"embeds"</span>: <span class="j-bracket">[</span>
-    <span class="j-bracket">{</span>
-      <span class="j-key">"title"</span>: <span class="j-str">"🟩 QQQ ALGORITHMIC SWEEP"</span>,
-      <span class="j-key">"color"</span>: <span class="j-num">5763719</span>,
-      <span class="j-key">"fields"</span>: <span class="j-bracket">[</span>
-        <span class="j-bracket">{</span>
-          <span class="j-key">"name"</span>: <span class="j-str">"Spot Price"</span>,
-          <span class="j-key">"value"</span>: <span class="j-str">"$445.30"</span>
-        <span class="j-bracket">}</span>,
-        <span class="j-bracket">{</span>
-          <span class="j-key">"name"</span>: <span class="j-str">"RSI (14)"</span>,
-          <span class="j-key">"value"</span>: <span class="j-str">"68.4"</span>
-        <span class="j-bracket">}</span>,
-        <span class="j-bracket">{</span>
-          <span class="j-key">"name"</span>: <span class="j-str">"Actionable 0DTE Targets"</span>,
-          <span class="j-key">"value"</span>: <span class="j-str">"```fix\nCalls: 445C | 446C```"</span>
-        <span class="j-bracket">}</span>
-      <span class="j-bracket">]</span>
-    <span class="j-bracket">}</span>
-  <span class="j-bracket">]</span>
-<span class="j-bracket">}</span></pre>
+  <span class="j-key">"system"</span>: <span class="j-str">"Lazarus Main Bot"</span>,
+  <span class="j-key">"signal"</span>: <span class="j-str">"Volume Breakout BULL"</span>,
+  <span class="j-key">"ticker"</span>: <span class="j-str">"QQQ"</span>,
+  <span class="j-key">"direction"</span>: <span class="j-str">"LONG CALL"</span>,
+  <span class="j-key">"timeframe"</span>: <span class="j-str">"5m + 15m MTF"</span>,
+  <span class="j-key">"rsi"</span>: <span class="j-num">68.4</span>,
+  <span class="j-key">"vwap_alignment"</span>: <span class="j-str">"BULLISH"</span>,
+  <span class="j-key">"news_conviction"</span>: <span class="j-str">"🟢 BULLISH"</span>,
+  <span class="j-key">"contract"</span>: <span class="j-str">"QQQ 445C 0DTE"</span>,
+  <span class="j-key">"risk_model"</span>: <span class="j-str">"SL -35% | TP +50%"</span>,
+  <span class="j-key">"status"</span>: <span class="j-str">"DISPATCHED"</span>
+<span class="j-bracket">}</span>
+</pre>
+
                 </div>
+
             </div>
+
+            <!-- PERFORMANCE -->
+            <section class="details-section"
+                     style="padding-top:3rem;">
+
+                <div class="container" data-aos="fade-up">
+
+                    <h2 class="main-font"
+                        style="text-align:center;
+                               margin-bottom:2rem;
+                               color:#fff;">
+
+                        Strategy
+                        <span class="text-blue">Performance</span>
+
+                    </h2>
+
+                    <div class="stats-grid">
+
+                        <div class="stat-card">
+                            <h3>$3K+</h3>
+                            <p>Peak Combined P&amp;L</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3>54%</h3>
+                            <p>Main Bot Win Rate</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3>230</h3>
+                            <p>Lotto Trades</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h3>+29.9%</h3>
+                            <p>Avg Lotto Return</p>
+                        </div>
+
+                    </div>
+
+                    <p style="text-align:center;
+                              max-width:900px;
+                              margin:0 auto 2rem auto;
+                              color:#ccc;">
+
+                        Historical performance analytics generated from the Lazarus
+                        backtesting engine. The framework evaluates both the
+                        momentum continuation strategy and the high-risk Lotto
+                        reversal system using historical QQQ market data,
+                        multi-timeframe validation, and automated signal replay.
+
+                    </p>
+
+                    <div class="backtest-container">
+
+                        <img src="img/lazarus_backtest_2026-05-22.png"
+                             alt="Lazarus Backtest Results"
+                             class="backtest-image">
+
+                    </div>
+
+                </div>
+
+            </section>
+
         </div>
+
     </section>
 
     <!-- FOOTER -->
-    <footer id="footer" class="footer" style="margin-top: 3rem; border-top: 1px solid #333;">
-        <div class="container" style="text-align: center; padding: 2rem 0;">
-            <a href="index.html" class="btn-blue" style="text-decoration: none; color: white;">&larr; Back to Portfolio</a>
+    <footer id="footer"
+            class="footer"
+            style="margin-top:3rem;
+                   border-top:1px solid #333;">
+
+        <div class="container"
+             style="text-align:center;
+                    padding:2rem 0;">
+
+            <a href="index.html"
+               class="btn-blue"
+               style="text-decoration:none;
+                      color:white;">
+
+                &larr; Back to Portfolio
+
+            </a>
+
         </div>
+
     </footer>
 
-    <!-- JS Libraries -->
+    <!-- LIBRARIES -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
+
+    <!-- MAIN JS -->
     <script>
-        // Initialize Background & Animations
+
         particlesJS.load('particles-bg', './particles.json');
         AOS.init();
 
-        // Terminal Typing Effect Logic
         const lines = [
-            "Initiating Project Lazarus...",
-            "Loading Pandas dependencies...",
-            "Authenticating with Finnhub API...",
-            "[OK] High-Frequency Polling Active.",
-            "Ingesting QQQ Options Flow...",
-            "Calculating 14-period RSI...",
-            ">>> RSI: 68.4. Price crossed SMA_5.",
-            "WARNING: Bullish divergence detected.",
-            "Formulating 0DTE Strike Targets...",
-            "Dispatching JSON payload to Discord C2...",
-            "[200 OK] Discord Payload Deployed.",
-            "Resetting price buffer. Awaiting signal..."
+
+            "Booting Lazarus multi-agent framework...",
+            "Loading Pandas + TA indicator engine...",
+            "Connecting to Yahoo Finance market feeds...",
+            "[OK] 5m / 15m MTF scanner initialized.",
+            "Monitoring QQQ, SPY, NVDA, META...",
+            "Calculating EMA9 / EMA21 crossovers...",
+            "Analyzing VWAP alignment + RSI momentum...",
+            "Running news sentiment conviction engine...",
+            "⚡ Volume Breakout BULL detected on QQQ.",
+            "Selecting optimal 0DTE option contract...",
+            "Computing SL/TP risk model...",
+            "Dispatching Discord intelligence payload...",
+            "[200 OK] Trade alert successfully deployed.",
+            "Awaiting next signal..."
+
         ];
-        
+
         let lineIndex = 0;
+
         const terminal = document.getElementById("terminal-output");
 
         function typeLine() {
+
             if (lineIndex < lines.length) {
-                terminal.innerHTML += "<span>> " + lines[lineIndex] + "</span><br>";
+
+                terminal.innerHTML +=
+                    "<span>> " +
+                    lines[lineIndex] +
+                    "</span><br>";
+
                 lineIndex++;
-                // Random typing speed between 300ms and 900ms
-                setTimeout(typeLine, Math.random() * 600 + 300); 
+
+                setTimeout(typeLine,
+                    Math.random() * 600 + 300);
+
             } else {
-                // Clear terminal and restart loop after 4 seconds
-                setTimeout(() => { terminal.innerHTML = ""; lineIndex = 0; typeLine(); }, 4000); 
+
+                setTimeout(() => {
+
+                    terminal.innerHTML = "";
+                    lineIndex = 0;
+                    typeLine();
+
+                }, 4000);
+
             }
+
         }
-        
-        // Start terminal effect after 1 second
+
         setTimeout(typeLine, 1000);
+
     </script>
+
 </body>
 </html>
