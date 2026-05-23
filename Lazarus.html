@@ -7,8 +7,6 @@
 
     <title>Project Lazarus | Quantitative Trading Intelligence</title>
 
-    <link rel="stylesheet" href="css/main.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -18,6 +16,20 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 
     <style>
+
+        /* =========================================================
+           RESET — neutralize any inherited stylesheet rules
+        ========================================================= */
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        header, #header {
+            min-height: unset !important;
+            position: relative !important;
+            background: transparent !important;
+        }
+
+        header .hero, header .socials, header .socials-sidebar { display: none !important; }
 
         /* =========================================================
            GLOBAL
