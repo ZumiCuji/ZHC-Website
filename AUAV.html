@@ -4,195 +4,154 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automated UAV - Zumi Cuji</title>
-    
-    <!-- Link to the original main.css file -->
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- Google Fonts -->
+    <title>Automated UAV — Zumi Cuji</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <link rel="icon" href="/img/favicon.png" type="image/png">
-    
-    <!-- Animation & Icon Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/lazarus-theme.css">
 
     <style>
-        /* This is the same block of override styles for consistency */
-        
-        /* --- 1. General Color & Background Changes --- */
-        body {
-            color: white;
-            background: #181a1b;
-        }
+        .details-section { padding: 4rem 0; }
 
-        #particles-bg {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .projects, .skills, .contact, .footer, .education, .details-section {
-            background: transparent !important;
-        }
-        
-        .seperator-skew {
-            display: none;
-        }
-
-        /* --- 2. Change Blue to Red --- */
-        .text-blue { color: #DC143C !important; }
-        .btn-blue, .bg-blue {
-            background-color: #DC143C !important;
-            border-color: #DC143C !important;
-        }
-        .btn-blue:hover {
-            background: #a50021 !important;
-            border-color: #a50021 !important;
-        }
-        header nav .nav-container .nav-links .link::after,
-        .footer .footer-flex .footer-icon-links a:hover {
-            color: #DC143C !important;
-            background-color: #DC143C !important;
-        }
-        
-        /* --- 3. Custom Styles for This Page --- */
-        .details-section {
-            padding: 4rem 0;
-        }
-        .hero-title {
-            font-family: "Alfa Slab One", "Poppins";
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        .details-section .project-row {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        .details-section .project-left {
-            flex: 1;
-        }
-        .details-section .project-right {
-            flex: 1.5;
-            text-align: left;
-        }
         .details-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #c5c5c5;
             margin-bottom: 1.5rem;
         }
-        .my-video {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 3px solid #555;
-        }
-        .bg-white a.text-dark-grey {
-            color: #2e3031 !important;
+
+        .details-section em { color: #909090; }
+
+        .tech-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
         }
 
-        @media (max-width: 860px) {
-            .details-section .project-row {
-                flex-direction: column;
-            }
-            .details-section .project-right {
-                text-align: center;
-                margin-top: 2rem;
-            }
+        .spec-card {
+            background: rgba(15,15,15,0.72);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: 0.35s ease;
         }
+
+        .spec-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(220,20,60,0.3);
+        }
+
+        .spec-card i {
+            color: #DC143C;
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .spec-card h4 { font-family: "Alfa Slab One", serif; margin-bottom: 0.35rem; }
+        .spec-card p { color: #bdbdbd; font-size: 0.9rem; margin: 0; }
     </style>
 </head>
 <body>
 
-    <div id="particles-bg"></div>
+<div id="particles-bg"></div>
 
-    <!-- HEADER -->
-    <header id="header" style="min-height: auto; padding-bottom: 2rem;">
-        <nav id="nav" data-aos="fade-in">
-            <div class="container nav-container">
-                <a href="index.html" id="logo"><img src="img/Logo.png" alt="Name Logo"></a>
-                <ul class="hide-for-mobile nav-links flex">
-                    <li><a href="index.html" class="link">Home</a></li>
-                    <li><a href="about.html" class="link">About Me</a></li>
-                    <li><a href="index.html#contact" class="link">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- PROJECT DETAILS SECTION -->
-    <section class="details-section">
-        <div class="container" data-aos="fade-up">
-            
-            <h1 class="hero-title">Automated Unmanned Aerial Vehicle</h1>
-
-            <div class="project-row">
-                <div class="project-left">
-                    <video class="my-video" autoplay muted loop playsinline controls>
-                        <source src="img/IMG_2253.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="project-right">
-                    <p>
-                        A fellow aerospace engineering student and I set out to build a radio-controlled (RC) airplane from essential parts. To prepare for the maiden flight—and avoid turning it into airborne debris—I spent countless hours on a flight simulator. The development of the manned airplane was relatively straightforward and mostly plug-and-play.
-                    </p>
-                    <p>
-                        The test flights were successful but left the aircraft with significant damage along the way. At one point, a faulty battery fried multiple flight controllers, requiring us to install and configure new hardware.
-                    </p>
-                    <p>
-                        Integrating the autopilot system proved to be the real challenge. GPS and compass calibration issues, combined with quirks in the Mission Planner software, demanded extensive troubleshooting. In the end, our persistence paid off—the plane successfully executed its first fully preprogrammed mission.
-                    </p>
-                    <p>
-                        <em>(The video attached is not the unmanned flight, as we were too excited to remember to film the successful mission.)</em>
-                    </p>
-                </div>
-            </div>
-
+<header id="header">
+    <nav data-aos="fade-in">
+        <div class="container nav-container">
+            <a href="index.html" id="logo"><img src="img/Logo.png" alt="Logo"></a>
+            <ul class="hide-for-mobile nav-links flex">
+                <li><a href="index.html" class="link">Home</a></li>
+                <li><a href="about.html" class="link">About Me</a></li>
+                <li><a href="index.html#contact" class="link">Contact</a></li>
+            </ul>
         </div>
-    </section>
+    </nav>
+</header>
 
-    <!-- FOOTER -->
-    <footer id="footer" class="footer">
-        <div class="container">
-            <div class="footer-flex">
-                <img src="img/Logo.png" alt="logo" id="logo-footer">
+<section class="details-section">
+    <div class="container" data-aos="fade-up">
+
+        <div class="page-hero" style="margin-bottom:3rem;">
+            <h1>Automated Unmanned <span class="text-red">Aerial Vehicle</span></h1>
+            <p>A custom-built RC aircraft integrated with a full autopilot system for autonomous waypoint navigation.</p>
+        </div>
+
+        <div class="project-row">
+            <div class="project-left">
+                <video style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.08);" autoplay muted loop playsinline controls>
+                    <source src="img/IMG_2253.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="project-right">
+                <p>
+                    A fellow aerospace engineering student and I set out to build a radio-controlled (RC) airplane from essential parts. To prepare for the maiden flight—and avoid turning it into airborne debris—I spent countless hours on a flight simulator. The development of the manned airplane was relatively straightforward and mostly plug-and-play.
+                </p>
+                <p>
+                    The test flights were successful but left the aircraft with significant damage along the way. At one point, a faulty battery fried multiple flight controllers, requiring us to install and configure new hardware.
+                </p>
+                <p>
+                    Integrating the autopilot system proved to be the real challenge. GPS and compass calibration issues, combined with quirks in the Mission Planner software, demanded extensive troubleshooting. In the end, our persistence paid off — the plane successfully executed its first fully preprogrammed mission.
+                </p>
+                <p>
+                    <em>(The video attached is not the unmanned flight, as we were too excited to remember to film the successful mission.)</em>
+                </p>
+            </div>
+        </div>
+
+        <div class="tech-specs" data-aos="fade-up">
+            <div class="spec-card">
+                <i class="fas fa-satellite-dish"></i>
+                <h4>GPS Navigation</h4>
+                <p>Multi-waypoint autonomous mission capability via ArduPilot</p>
+            </div>
+            <div class="spec-card">
+                <i class="fas fa-microchip"></i>
+                <h4>Flight Controller</h4>
+                <p>Pixhawk-based autopilot with sensor fusion</p>
+            </div>
+            <div class="spec-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h4>Mission Planner</h4>
+                <p>GCS software for mission programming and telemetry</p>
+            </div>
+            <div class="spec-card">
+                <i class="fas fa-compass"></i>
+                <h4>Compass + IMU</h4>
+                <p>Calibrated magnetometer and inertial measurement unit</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-flex">
+            <img src="img/Logo.png" alt="logo" id="logo-footer">
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <a href="index.html" class="btn-red btn-small">← Back to Portfolio</a>
                 <div class="footer-icon-links">
                     <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-                    <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
                     <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <a id="backToTopBtn" class="btn-blue"><i class="fa fa-chevron-up"></i></a>
-
-    <!-- JS Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
-    <script>
-        // Initialize Particles.js and AOS
-        particlesJS.load('particles-bg', './particles.json', function() {
-            console.log('Background particles loaded successfully!');
-        });
-        AOS.init();
-    </script>
-    <script defer src="js/app.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    particlesJS.load('particles-bg', './particles.json');
+    AOS.init();
+</script>
+<script defer src="js/app.js"></script>
 </body>
 </html>

@@ -4,180 +4,164 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mechanical Engineer - Zumi Cuji</title>
-    
-    <!-- Link to the original main.css file -->
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- Google Fonts -->
+    <title>Mechanical Engineer — Zumi Cuji</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <link rel="icon" href="/img/favicon.png" type="image/png">
-    
-    <!-- Animation & Icon Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/lazarus-theme.css">
 
     <style>
-        /* This is the same block of override styles for consistency */
-        
-        /* --- 1. General Color & Background Changes --- */
-        body {
-            color: white;
-            background: #181a1b;
+        .details-section { padding: 4rem 0; }
+
+        .content-card {
+            max-width: 820px;
+            margin: 0 auto;
+            background: rgba(15,15,15,0.72);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
         }
 
-        #particles-bg {
-            position: fixed;
+        .content-card img {
             width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .projects, .skills, .contact, .footer, .education, .details-section {
-            background: transparent !important;
-        }
-        
-        .seperator-skew {
-            display: none;
-        }
-
-        /* --- 2. Change Blue to Red --- */
-        .text-blue { color: #DC143C !important; }
-        .btn-blue, .bg-blue {
-            background-color: #DC143C !important;
-            border-color: #DC143C !important;
-        }
-        .btn-blue:hover {
-            background: #a50021 !important;
-            border-color: #a50021 !important;
-        }
-        header nav .nav-container .nav-links .link::after,
-        .footer .footer-flex .footer-icon-links a:hover {
-            color: #DC143C !important;
-            background-color: #DC143C !important;
-        }
-        
-        /* --- 3. Custom Styles for This Page --- */
-        .details-section {
-            padding: 4rem 0;
-            text-align: center;
-        }
-        .details-section .container {
-            max-width: 800px;
-        }
-        .details-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-        .details-section strong {
-            color: #DC143C;
-            font-weight: 600;
-        }
-        .hero-title {
-            font-family: "Alfa Slab One", "Poppins";
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .hero-image {
             display: block;
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            margin: 0 auto 3rem auto;
-            border-radius: 10px;
-            border: 3px solid #555;
+            max-height: 420px;
+            object-fit: cover;
         }
-        .bg-white a.text-dark-grey {
-            color: #2e3031 !important;
+
+        .content-body {
+            padding: 2.5rem;
+        }
+
+        .content-body p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #c5c5c5;
+            margin-bottom: 1.25rem;
+        }
+
+        .content-body strong { color: #DC143C; font-weight: 600; }
+
+        .clearance-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(220,20,60,0.1);
+            border: 1px solid rgba(220,20,60,0.3);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            color: #DC143C;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlights-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .highlights-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #d0d0d0;
+        }
+
+        .highlights-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #DC143C;
+            flex-shrink: 0;
         }
     </style>
 </head>
 <body>
 
-    <div id="particles-bg"></div>
+<div id="particles-bg"></div>
 
-    <!-- HEADER (Simplified for Project Detail Page) -->
-    <header id="header" style="min-height: auto; padding-bottom: 2rem;">
-        <nav id="nav" data-aos="fade-in">
-            <div class="container nav-container">
-                <a href="index.html" id="logo"><img src="img/Logo.png" alt="Name Logo"></a>
-                <ul class="hide-for-mobile nav-links flex">
-                    <li><a href="index.html" class="link">Home</a></li>
-                    <li><a href="about.html" class="link">About Me</a></li>
-                    <li><a href="index.html#contact" class="link">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- PROJECT DETAILS SECTION -->
-    <section class="details-section">
-        <div class="container" data-aos="fade-up">
-            
-            <h1 class="hero-title">Mechanical Engineer</h1>
-            
-            <img src="img/submarine_emergency_blow.jpg" alt="Submarine Emergency Blow" class="hero-image">
-
-            <p>
-                <strong>FOR HIRING PURPOSES ONLY</strong>
-            </p>
-            <p>
-                I work on non-propulsion fluid systems for US Navy Nuclear Submarines. I specialize in Virginia Class and Los Angeles Class submarines.
-            </p>
-            <p>
-                Further <strong>experience</strong> details will only be discussed with those who have an official need to know basis and active secret clearance or higher. No specific details will be disclosed. Thank you for understanding!
-            </p>
-            <p>
-                <strong>Position Highlights</strong><br>
-                Secret Security Clearance<br>
-                Finite Element Analysis<br>
-                Piping Systems<br>
-                Fluid Flow
-            </p>
-
+<header id="header">
+    <nav data-aos="fade-in">
+        <div class="container nav-container">
+            <a href="index.html" id="logo"><img src="img/Logo.png" alt="Logo"></a>
+            <ul class="hide-for-mobile nav-links flex">
+                <li><a href="index.html" class="link">Home</a></li>
+                <li><a href="about.html" class="link">About Me</a></li>
+                <li><a href="index.html#contact" class="link">Contact</a></li>
+            </ul>
         </div>
-    </section>
+    </nav>
+</header>
 
-    <!-- FOOTER (Consistent with other pages) -->
-    <footer id="footer" class="footer">
-        <div class="container">
-            <div class="footer-flex">
-                <img src="img/Logo.png" alt="logo" id="logo-footer">
+<section class="details-section">
+    <div class="container" data-aos="fade-up">
+
+        <div class="page-hero" style="margin-bottom:3rem;">
+            <h1>Mechanical <span class="text-red">Engineer</span></h1>
+            <p>Naval Nuclear Submarine Systems — July 2025 to Present</p>
+        </div>
+
+        <div class="content-card">
+            <img src="img/submarine_emergency_blow.jpg" alt="Submarine Emergency Blow">
+            <div class="content-body">
+
+                <div class="clearance-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    For Hiring Purposes Only — Need-to-Know Basis
+                </div>
+
+                <p>
+                    I work on <strong>non-propulsion fluid systems</strong> for US Navy Nuclear Submarines. I specialize in Virginia Class and Los Angeles Class submarines.
+                </p>
+                <p>
+                    Further experience details will only be discussed with those who have an official need-to-know basis and <strong>active Secret clearance or higher</strong>. No specific details will be disclosed. Thank you for understanding.
+                </p>
+
+                <p><strong>Position Highlights</strong></p>
+                <ul class="highlights-list">
+                    <li>Secret Security Clearance</li>
+                    <li>Finite Element Analysis</li>
+                    <li>Piping Systems</li>
+                    <li>Fluid Flow Analysis</li>
+                    <li>Virginia Class</li>
+                    <li>Los Angeles Class</li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-flex">
+            <img src="img/Logo.png" alt="logo" id="logo-footer">
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <a href="index.html" class="btn-red btn-small">← Back to Portfolio</a>
                 <div class="footer-icon-links">
                     <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-                    <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
                     <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <a id="backToTopBtn" class="btn-blue"><i class="fa fa-chevron-up"></i></a>
-
-    <!-- JS Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
-    <script>
-        // Initialize Particles.js and AOS
-        particlesJS.load('particles-bg', './particles.json', function() {
-            console.log('Background particles loaded successfully!');
-        });
-        AOS.init();
-    </script>
-    <script defer src="js/app.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    particlesJS.load('particles-bg', './particles.json');
+    AOS.init();
+</script>
+<script defer src="js/app.js"></script>
 </body>
 </html>
