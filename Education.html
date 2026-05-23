@@ -4,176 +4,207 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Education - Zumi Cuji</title>
-    
-    <!-- Link to the original main.css file -->
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- Google Fonts -->
+    <title>Education — Zumi Cuji</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <link rel="icon" href="/img/favicon.png" type="image/png">
-    
-    <!-- Animation & Icon Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="stylesheet" href="css/lazarus-theme.css">
 
     <style>
-        /* This is the same block of override styles for consistency */
-        
-        /* --- 1. General Color & Background Changes --- */
-        body {
-            color: white;
-            background: #181a1b;
+        .edu-section { padding: 4rem 0; }
+
+        .edu-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(15,15,15,0.72);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
         }
 
-        #particles-bg {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
+        .edu-card-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 2.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .projects, .skills, .contact, .footer, .education, .details-section {
-            background: transparent !important;
-        }
-        
-        .seperator-skew {
-            display: none;
+        .edu-card-header img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: white;
+            padding: 0.75rem;
         }
 
-        /* --- 2. Change Blue to Red --- */
-        .text-blue { color: #DC143C !important; }
-        .btn-blue, .bg-blue {
-            background-color: #DC143C !important;
-            border-color: #DC143C !important;
+        .edu-info h2 {
+            font-family: "Alfa Slab One", serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
         }
-        .btn-blue:hover {
-            background: #a50021 !important;
-            border-color: #a50021 !important;
+
+        .edu-info p { color: #bdbdbd; margin: 0; }
+        .edu-info .text-red { font-weight: 600; }
+
+        .edu-card-body {
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
-        header nav .nav-container .nav-links .link::after,
-        .footer .footer-flex .footer-icon-links a:hover {
-            color: #DC143C !important;
-            background-color: #DC143C !important;
-        }
-        
-        /* --- 3. Custom Styles for This Page --- */
-        .details-section {
-            padding: 4rem 0;
+
+        .edu-stat {
+            background: rgba(255,255,255,0.03);
+            border-radius: 14px;
+            padding: 1.5rem;
             text-align: center;
         }
-        .hero-title {
-            font-family: "Alfa Slab One", "Poppins";
-            font-size: 2.5rem;
-            line-height: 1.3;
-            margin-bottom: 2rem;
-        }
-        #ncsu-logo {
-            border-radius: 50%;
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
+
+        .edu-stat .val {
             display: block;
-            margin: 0 auto 2rem auto;
-            border: 5px solid #DC143C; /* Red border */
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.3rem;
         }
-        .work-experience {
-            padding-top: 20px;
-            padding-bottom: 20px;
+
+        .edu-stat .lbl {
+            color: #a0a0a0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .work-experience p {
-            margin: 0;
-            font-size: 1.2rem;
-            line-height: 1.8;
+
+        .coursework {
+            grid-column: 1 / -1;
         }
-        .work-experience strong {
-            font-size: 1.5rem;
+
+        .coursework h3 {
+            font-family: "Alfa Slab One", serif;
+            margin-bottom: 1rem;
         }
-        .work-details {
-            margin-top: 1em;
+
+        .course-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
-        .bg-white a.text-dark-grey {
-            color: #2e3031 !important;
+
+        .course-tag {
+            background: rgba(220,20,60,0.08);
+            border: 1px solid rgba(220,20,60,0.2);
+            border-radius: 8px;
+            padding: 0.35rem 0.85rem;
+            font-size: 0.85rem;
+            color: #e0e0e0;
+        }
+
+        @media (max-width: 600px) {
+            .edu-card-header { flex-direction: column; text-align: center; }
+            .edu-card-body { grid-template-columns: 1fr; }
+            .coursework { grid-column: auto; }
         }
     </style>
 </head>
 <body>
 
-    <div id="particles-bg"></div>
+<div id="particles-bg"></div>
 
-    <!-- HEADER -->
-    <header id="header" style="min-height: auto; padding-bottom: 2rem;">
-        <nav id="nav" data-aos="fade-in">
-            <div class="container nav-container">
-                <a href="index.html" id="logo"><img src="img/Logo.png" alt="Name Logo"></a>
-                <ul class="hide-for-mobile nav-links flex">
-                    <li><a href="index.html" class="link">Home</a></li>
-                    <li><a href="about.html" class="link">About Me</a></li>
-                    <li><a href="index.html#contact" class="link">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- EDUCATION DETAILS SECTION -->
-    <section class="details-section">
-        <div class="container" data-aos="fade-up">
-
-            <h1 class="hero-title">Aerospace Engineering<br>Minor in Physics</h1>
-
-            <img id="ncsu-logo" src="img/ncsu.jpg" alt="NCSU Logo">
-
-            <div class="work-experience">
-                <p>
-                    <strong>North Carolina State University</strong>
-                </p>
-                <p class="work-details">
-                    August 2021 - May 2025<br>
-                    GPA: 3.1
-                </p>
-            </div>
-
+<header id="header">
+    <nav data-aos="fade-in">
+        <div class="container nav-container">
+            <a href="index.html" id="logo"><img src="img/Logo.png" alt="Logo"></a>
+            <ul class="hide-for-mobile nav-links flex">
+                <li><a href="index.html" class="link">Home</a></li>
+                <li><a href="about.html" class="link">About Me</a></li>
+                <li><a href="index.html#contact" class="link">Contact</a></li>
+            </ul>
         </div>
-    </section>
+    </nav>
+</header>
 
-    <!-- FOOTER -->
-    <footer id="footer" class="footer">
-        <div class="container">
-            <div class="footer-flex">
-                <img src="img/Logo.png" alt="logo" id="logo-footer">
+<section class="edu-section">
+    <div class="container" data-aos="fade-up">
+
+        <div class="page-hero" style="margin-bottom:3rem;">
+            <h1>My <span class="text-red">Education</span></h1>
+        </div>
+
+        <div class="edu-card">
+            <div class="edu-card-header">
+                <img src="img/ncsu.jpg" alt="NC State University">
+                <div class="edu-info">
+                    <h2>North Carolina State University</h2>
+                    <p><span class="text-red">B.S. Aerospace Engineering</span> — Physics Minor</p>
+                    <p>August 2021 – May 2025</p>
+                    <p style="margin-top:0.5rem;">GPA: 3.1</p>
+                </div>
+            </div>
+            <div class="edu-card-body">
+                <div class="edu-stat">
+                    <span class="val">3.1</span>
+                    <span class="lbl">GPA</span>
+                </div>
+                <div class="edu-stat">
+                    <span class="val">4</span>
+                    <span class="lbl">Years</span>
+                </div>
+                <div class="edu-stat">
+                    <span class="val">2025</span>
+                    <span class="lbl">Graduated</span>
+                </div>
+                <div class="edu-stat">
+                    <span class="val">2</span>
+                    <span class="lbl">Majors / Minors</span>
+                </div>
+                <div class="coursework">
+                    <h3>Key Coursework</h3>
+                    <div class="course-tags">
+                        <span class="course-tag">Flight Mechanics</span>
+                        <span class="course-tag">Orbital Mechanics</span>
+                        <span class="course-tag">Aerodynamics</span>
+                        <span class="course-tag">Propulsion</span>
+                        <span class="course-tag">Structures & Materials</span>
+                        <span class="course-tag">Control Systems</span>
+                        <span class="course-tag">Classical Mechanics</span>
+                        <span class="course-tag">Electromagnetism</span>
+                        <span class="course-tag">Thermodynamics</span>
+                        <span class="course-tag">Finite Element Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-flex">
+            <img src="img/Logo.png" alt="logo" id="logo-footer">
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <a href="index.html" class="btn-red btn-small">← Back to Portfolio</a>
                 <div class="footer-icon-links">
                     <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-                    <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
                     <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <a id="backToTopBtn" class="btn-blue"><i class="fa fa-chevron-up"></i></a>
-
-    <!-- JS Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
-    <script>
-        // Initialize Particles.js and AOS
-        particlesJS.load('particles-bg', './particles.json', function() {
-            console.log('Background particles loaded successfully!');
-        });
-        AOS.init();
-    </script>
-    <script defer src="js/app.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    particlesJS.load('particles-bg', './particles.json');
+    AOS.init();
+</script>
+<script defer src="js/app.js"></script>
 </body>
 </html>
