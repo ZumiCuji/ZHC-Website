@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Mission Control | ZHC Projects</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#020611;
+    --panel:#07111f;
+    --cyan:#73e7ff;
+    --blue:#2a8fff;
+    --text:#d9f4ff;
+    --muted:#89a8c0;
+    --border:rgba(0,255,255,0.12);
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+}
+
+.grid{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:60px 60px;
+    opacity:0.05;
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px);
+    background-size:140px 140px, 70px 70px;
+    opacity:0.18;
+}
+
+.glow{
+    position:absolute;
+    width:800px;
+    height:800px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(0,170,255,0.12), transparent 70%);
+    filter:blur(40px);
+}
+
+.glow.one{
+    top:-200px;
+    left:-200px;
+}
+
+.glow.two{
+    bottom:-300px;
+    right:-200px;
+}
+
+/* NAV */
+
+.nav{
+    width:100%;
+    padding:24px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    backdrop-filter:blur(18px);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:1.2rem;
+    font-weight:800;
+    letter-spacing:4px;
+    color:var(--cyan);
+    text-shadow:0 0 25px rgba(0,255,255,0.35);
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+}
+
+.nav-links a{
+    color:#9cb7cc;
+    text-decoration:none;
+    transition:0.3s;
+    font-size:0.95rem;
+}
+
+.nav-links a:hover{
+    color:var(--cyan);
+}
+
+/* HERO */
+
+.hero{
+    min-height:92vh;
+    width:100%;
+    padding:120px 7% 80px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.eyebrow{
+    color:var(--cyan);
+    letter-spacing:4px;
+    font-size:0.8rem;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:5.3rem;
+    line-height:0.95;
+    letter-spacing:-4px;
+    margin-bottom:26px;
+}
+
+.hero h1 span{
+    color:var(--cyan);
+    text-shadow:0 0 30px rgba(0,255,255,0.35);
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:1.05rem;
+    line-height:1.9;
+    max-width:700px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 28px;
+    border-radius:16px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.primary{
+    background:linear-gradient(135deg,#00c6ff,#005eff);
+    color:white;
+    box-shadow:0 0 40px rgba(0,140,255,0.35);
+}
+
+.primary:hover{
+    transform:translateY(-4px);
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,0.08);
+    color:#b9d4e7;
+    background:rgba(255,255,255,0.03);
+}
+
+.secondary:hover{
+    border-color:rgba(0,255,255,0.25);
+    color:var(--cyan);
+}
+
+/* PREVIEW PANEL */
+
+.preview{
+    position:relative;
+}
+
+.dashboard-card{
+    background:rgba(7,17,31,0.92);
+    border:1px solid var(--border);
+    border-radius:32px;
+    overflow:hidden;
+    box-shadow:
+        0 0 40px rgba(0,170,255,0.12),
+        inset 0 0 100px rgba(255,255,255,0.02);
+}
+
+.dashboard-top{
+    display:flex;
+    justify-content:space-between;
+    padding:18px 22px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.dot-group{
+    display:flex;
+    gap:8px;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+}
+
+.red{background:#ff5f57;}
+.yellow{background:#ffbd2f;}
+.green{background:#28ca42;}
+
+.live{
+    color:#43ffb1;
+    font-size:0.75rem;
+    letter-spacing:2px;
+}
+
+.dashboard-image{
+    width:100%;
+    height:520px;
+    object-fit:cover;
+    display:block;
+    opacity:0.92;
+}
+
+/* CONTENT */
+
+.section{
+    padding:90px 7%;
+}
+
+.section-title{
+    color:var(--cyan);
+    letter-spacing:4px;
+    font-size:0.8rem;
+    margin-bottom:18px;
+}
+
+.section h2{
+    font-size:3rem;
+    margin-bottom:24px;
+}
+
+.section-desc{
+    color:var(--muted);
+    max-width:850px;
+    line-height:1.9;
+}
+
+/* CARDS */
+
+.card-grid{
+    margin-top:48px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.card{
+    background:rgba(7,17,31,0.88);
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:32px;
+    transition:0.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        rgba(0,180,255,0.08),
+        transparent 40%
+    );
+    opacity:0;
+    transition:0.4s;
+}
+
+.card:hover::before{
+    opacity:1;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(0,255,255,0.25);
+}
+
+.icon{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    margin-bottom:22px;
+    background:rgba(0,170,255,0.08);
+    border:1px solid rgba(0,255,255,0.12);
+}
+
+.card h3{
+    color:var(--cyan);
+    margin-bottom:18px;
+    font-size:1.2rem;
+}
+
+.card p{
+    color:#9ab8ce;
+    line-height:1.85;
+    font-size:0.96rem;
+}
+
+/* TIMELINE */
+
+.timeline{
+    margin-top:60px;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
+
+.timeline-item{
+    display:flex;
+    gap:24px;
+    align-items:flex-start;
+}
+
+.timeline-number{
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    background:rgba(0,170,255,0.08);
+    border:1px solid rgba(0,255,255,0.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--cyan);
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.timeline-content{
+    background:rgba(7,17,31,0.88);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:28px;
+    width:100%;
+}
+
+.timeline-content h4{
+    margin-bottom:10px;
+    color:white;
+    font-size:1.1rem;
+}
+
+.timeline-content p{
+    color:#96b3c8;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+.footer{
+    padding:40px 7%;
+    border-top:1px solid rgba(255,255,255,0.05);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    color:#7291a8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:4rem;
+    }
+
+    .card-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    .nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .section h2{
+        font-size:2.2rem;
+    }
+
+    .dashboard-image{
+        height:340px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg">
+    <div class="grid"></div>
+    <div class="stars"></div>
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+</div>
+
+<nav class="nav">
+
+<div class="logo">
+MISSION CONTROL
+</div>
+
+<div class="nav-links">
+<a href="#">Overview</a>
+<a href="#">Features</a>
+<a href="#">Tracking</a>
+<a href="#">Telemetry</a>
+<a href="#">Launches</a>
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div>
+
+<div class="eyebrow">
+NEW PROJECT • SPACE INTELLIGENCE SYSTEM
+</div>
+
+<h1>
+Mission
+<span>Control</span>
+</h1>
+
+<p>
+Mission Control is a real-time orbital intelligence dashboard I built today
+to combine my interests in spaceflight, aerospace engineering, planetary
+defense systems, and cinematic interface design. The project pulls live data
+from NASA and other public APIs to create an immersive command-center
+experience inspired by real mission operations systems.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn primary">Open Dashboard</a>
+<a href="#" class="btn secondary">Project Source</a>
+</div>
+
+</div>
+
+<div class="preview">
+
+<div class="dashboard-card">
+
+<div class="dashboard-top">
+
+<div class="dot-group">
+<div class="dot red"></div>
+<div class="dot yellow"></div>
+<div class="dot green"></div>
+</div>
+
+<div class="live">
+● LIVE TELEMETRY
+</div>
+
+</div>
+
+<img
+class="dashboard-image"
+src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?q=80&w=1800&auto=format&fit=crop"
+alt="Mission Control Dashboard"
+/>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-title">
+PROJECT OVERVIEW
+</div>
+
+<h2>
+A Personal Space Operations Platform
+</h2>
+
+<p class="section-desc">
+The dashboard visualizes live asteroid tracking, ISS telemetry,
+satellite activity, earthquakes, Mars weather, and upcoming rocket launches
+through a futuristic planetary defense interface. I designed it to feel like
+a real aerospace monitoring system while also functioning as a practical way
+to keep up with my space hobbies and interests every day.
+</p>
+
+<div class="card-grid">
+
+<div class="card">
+
+<div class="icon">🛰</div>
+
+<h3>Orbital Tracking</h3>
+
+<p>
+Visualizes real-time satellite movement and ISS positioning around a fully
+interactive 3D Earth using Three.js rendering and live orbital data feeds.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">☄</div>
+
+<h3>Near-Earth Objects</h3>
+
+<p>
+Tracks asteroid approaches and hazardous object telemetry using NASA APIs,
+including velocity, distance, and risk monitoring systems.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon">🚀</div>
+
+<h3>Launch Intelligence</h3>
+
+<p>
+Aggregates upcoming launches, mission information, launch sites,
+and countdown telemetry into a centralized mission operations dashboard.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-title">
+HOW I USE IT
+</div>
+
+<h2>
+Daily Mission Operations Workflow
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-number">
+01
+</div>
+
+<div class="timeline-content">
+
+<h4>Morning Orbital Check</h4>
+
+<p>
+I use the dashboard to monitor the ISS position, satellite movement,
+and asteroid activity as part of my daily interest in space systems and
+orbital mechanics.
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-number">
+02
+</div>
+
+<div class="timeline-content">
+
+<h4>Launch Monitoring</h4>
+
+<p>
+The launch telemetry panel lets me quickly track upcoming launches and
+missions without needing to browse multiple aerospace news sources.
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-number">
+03
+</div>
+
+<div class="timeline-content">
+
+<h4>Learning & Visualization</h4>
+
+<p>
+The project helps me stay connected to aerospace engineering concepts,
+spaceflight operations, and planetary monitoring while improving my frontend
+engineering and real-time visualization skills.
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-number">
+04
+</div>
+
+<div class="timeline-content">
+
+<h4>Cinematic Command Center Design</h4>
+
+<p>
+A major focus of the project was creating a sci-fi inspired user interface
+that feels immersive, tactical, and alive while still presenting real-world
+space telemetry in an organized way.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div>
+MISSION CONTROL — SPACE INTELLIGENCE SYSTEM
+</div>
+
+<div>
+Built with HTML • CSS • JavaScript • Three.js • NASA APIs
+</div>
+
+</footer>
+
+</body>
+</html>
