@@ -1,312 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Zumi Cuji — Mechanical &amp; Aerospace Engineer</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zumi Cuji</title>
 
-<!-- Shared theme (fonts load via the stylesheet) -->
-<link rel="stylesheet" href="css/lazarus-theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
-<!-- Icons: Font Awesome (social/contact) + Iconify (skill logos) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
-<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <!-- Lazarus Theme -->
+    <link rel="stylesheet" href="css/lazarus-theme.css">
 
-<style>
-  /* ---- INDEX-ONLY: hero layout ---- */
-  #header{ padding-top:0 }
-  .hero-grid{
-    display:grid;grid-template-columns:1.45fr .9fr;gap:3rem;
-    align-items:center;padding:5rem 0 4rem;
-  }
-  .hero-inner h1{
-    font-family:"Space Grotesk",sans-serif;font-weight:700;
-    font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.02;letter-spacing:-0.02em;margin:0 0 1.1rem;
-  }
-  .hero-roles{font-family:"JetBrains Mono",monospace;color:var(--muted);font-size:.95rem;line-height:2;letter-spacing:.02em}
-  .hero-roles b{color:var(--text);font-weight:500}
-  .hero-cta{margin-top:1.9rem;display:flex;gap:1rem;flex-wrap:wrap}
+    <style>
+        /* ---- INDEX-SPECIFIC ---- */
+        header {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-  .profile-pics{display:flex;gap:.55rem;margin-top:1.9rem}
-  .profile-pic{
-    width:54px;height:54px;border-radius:8px;object-fit:cover;
-    border:1px solid var(--line-2);filter:grayscale(1) contrast(1.05);transition:filter .35s;
-  }
-  .profile-pics:hover .profile-pic{filter:grayscale(0)}
+        .hero-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-  .spec-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);overflow:hidden}
-  .spec-card .sc-head{
-    font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--faint);padding:.75rem 1.1rem;border-bottom:1px solid var(--line);
-    display:flex;align-items:center;gap:.6rem;
-  }
-  .spec-card .sc-head .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
-  .spec-row{
-    display:grid;grid-template-columns:84px 1fr;gap:.8rem;
-    padding:.72rem 1.1rem;border-bottom:1px solid var(--line);font-family:"JetBrains Mono",monospace;
-  }
-  .spec-row:last-child{border-bottom:0}
-  .spec-row .k{color:var(--faint);letter-spacing:.08em;text-transform:uppercase;font-size:.66rem;padding-top:.18rem}
-  .spec-row .v{color:var(--text);font-size:.84rem;line-height:1.5}
+        .hero-inner {
+            text-align: center;
+        }
 
-  @media(max-width:880px){
-    .hero-grid{grid-template-columns:1fr;gap:2.2rem;padding:3.5rem 0}
-    .spec-card{max-width:440px}
-  }
-</style>
+        .hero-inner h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-family: "Alfa Slab One", serif;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            color: #bdbdbd;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Sections heading alignment */
+        .section-heading {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            font-family: "Alfa Slab One", serif;
+        }
+
+        /* Contact form */
+        #status { text-align: center; margin-top: 1rem; }
+        #status.success { color: #5cb85c; }
+        #status.error { color: #d9534f; }
+        @keyframes status {
+            0% { opacity:1; }
+            90% { opacity:1; }
+            100% { opacity:0; }
+        }
+        #status.success, #status.error { animation: status 4s ease forwards; }
+    </style>
 </head>
 <body>
 
+<div id="particles-bg"></div>
+
 <!-- =========================================================
-     NAV
+     HEADER / NAV
 ========================================================= -->
 <header id="header">
-  <nav id="nav">
-    <div class="container nav-container">
-      <a href="index.html" id="logo"><img src="img/Logo.png" alt="Zumi Cuji"></a>
-      <ul class="hide-for-mobile nav-links">
-        <li><a href="#projects" class="link">Projects</a></li>
-        <li><a href="#work" class="link">Experience</a></li>
-        <li><a href="about.html" class="link">About</a></li>
-        <li><a href="#contact" class="link">Contact</a></li>
-      </ul>
+    <nav id="nav" data-aos="fade-in">
+        <div class="container nav-container">
+            <a href="index.html" id="logo"><img src="img/Logo.png" alt="Zumi Cuji Logo"></a>
+            <ul class="hide-for-mobile nav-links flex">
+                <li><a href="#projects" class="link"><i class="fas fa-tools"></i> Projects</a></li>
+                <li><a href="#work" class="link"><i class="fas fa-coffee"></i> Experience</a></li>
+                <li><a href="about.html" class="link"><i class="fas fa-paper-plane"></i> About Me</a></li>
+                <li><a href="#contact" class="link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+        <div class="mobile-menu hide-for-desktop">
+            <div class="container">
+                <div class="mobile-menu-links">
+                    <ul class="flex">
+                        <li><a href="#projects" class="link">Projects</a></li>
+                        <li><a href="#work" class="link">Experience</a></li>
+                        <li><a href="about.html" class="link">About Me</a></li>
+                        <li><a href="#contact" class="link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-wrap">
+        <div class="hero-inner" data-aos="fade-up">
+            <h1><span class="text-red">Zumi Cuji</span></h1>
+            <p class="hero-subtitle">
+                Mechanical Engineer<br>
+                B.S. in Aerospace Engineering, Physics Minor<br>
+                Husband &nbsp;·&nbsp; Dog Dad
+            </p>
+            <div class="profile-pics">
+                <img class="profile-pic" src="img/IMG_3099.jpg" alt="Zumi">
+                <img class="profile-pic" src="img/wife.jpg" alt="Wife">
+                <img class="profile-pic" src="img/hendrix.jpg" alt="Hendrix">
+                <img class="profile-pic" src="img/millie.jpg" alt="Millie">
+            </div>
+            <div style="margin-top:1.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                <a href="#projects" class="btn-red">View Projects</a>
+                <a href="#contact" class="btn-outline">Get in Touch</a>
+            </div>
+        </div>
     </div>
-    <div class="mobile-menu hide-for-desktop">
-      <div class="container">
-        <ul class="flex">
-          <li><a href="#projects" class="link">Projects</a></li>
-          <li><a href="#work" class="link">Experience</a></li>
-          <li><a href="about.html" class="link">About</a></li>
-          <li><a href="#contact" class="link">Contact</a></li>
+
+    <!-- Socials sidebar -->
+    <div class="socials-sidebar hide-for-mobile" data-aos="fade-in">
+        <ul>
+            <li style="background:#DC143C;">
+                <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank">
+                    <span class="socials-text">LinkedIn</span>
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </li>
+            <li style="background:white;">
+                <a href="mailto:zumicuji@gmail.com" style="color:#1a1a1a;">
+                    <span class="socials-text">Email</span>
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </li>
         </ul>
-      </div>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-inner reveal">
-        <span class="eyebrow">Portfolio · Mechanical &amp; Aerospace Engineer</span>
-        <h1>Zumi Cuji</h1>
-        <p class="hero-roles">
-          <b>Mechanical Engineer</b><br>
-          B.S. Aerospace Engineering · Physics Minor<br>
-          Husband &nbsp;·&nbsp; Dog Dad
-        </p>
-        <div class="profile-pics">
-          <img class="profile-pic" src="img/IMG_3099.jpg" alt="Zumi">
-          <img class="profile-pic" src="img/wife.jpg" alt="Wife">
-          <img class="profile-pic" src="img/hendrix.jpg" alt="Hendrix">
-          <img class="profile-pic" src="img/millie.jpg" alt="Millie">
-        </div>
-        <div class="hero-cta">
-          <a href="#projects" class="btn-red">View Projects</a>
-          <a href="#contact" class="btn-outline">Get in Touch</a>
-        </div>
-      </div>
-
-      <aside class="spec-card reveal">
-        <div class="sc-head"><span class="dot"></span> profile</div>
-        <div class="spec-row"><span class="k">Role</span><span class="v">Mechanical Engineer</span></div>
-        <div class="spec-row"><span class="k">Degree</span><span class="v">B.S. Aerospace Engineering</span></div>
-        <div class="spec-row"><span class="k">Minor</span><span class="v">Physics</span></div>
-        <div class="spec-row"><span class="k">School</span><span class="v">NC State University · 2025</span></div>
-        <div class="spec-row"><span class="k">Focus</span><span class="v">Aerospace systems · controls · simulation</span></div>
-      </aside>
-    </div>
-  </div>
 </header>
 
 <!-- =========================================================
      EXPERIENCE
 ========================================================= -->
 <section id="work">
-  <div class="container">
-    <h2 class="section-heading">My <span class="text-red">Experience</span></h2>
-    <div class="project-row reveal">
-      <div class="project-left"><img class="project-img" src="img/NNSYLogo.png" alt="NNSY Logo"></div>
-      <div class="project-right">
-        <h3>Mechanical Engineer</h3>
-        <p style="color:#a0a0a0;">July 2025 – Current</p>
-        <p>Details are limited due to the sensitivity of the position and employer.</p>
-        <div class="project-links">
-          <a href="Mech.html" class="btn-red btn-small">Learn More</a>
+    <div class="container">
+        <h2 class="section-heading">My <span class="text-red">Experience</span></h2>
+
+        <div class="project-row" data-aos="fade-up">
+            <div class="project-left">
+                <img class="project-img" src="img/NNSYLogo.png" alt="NNSY Logo">
+            </div>
+            <div class="project-right">
+                <h3>Mechanical Engineer</h3>
+                <p style="color:#a0a0a0;">July 2025 – Current</p>
+                <p>Details are limited due to sensitivity of position and employer.</p>
+                <div class="project-links">
+                    <a href="Mech.html" class="btn-red btn-small"><i class="fas fa-external-link-alt"></i> Learn More</a>
+                </div>
+            </div>
         </div>
-      </div>
+
     </div>
-  </div>
 </section>
 
 <!-- =========================================================
      EDUCATION
 ========================================================= -->
 <section id="education">
-  <div class="container">
-    <h2 class="section-heading">My <span class="text-red">Education</span></h2>
-    <div class="project-row reveal">
-      <div class="project-left"><img class="project-img" src="img/ncsu.png" alt="NCSU Logo"></div>
-      <div class="project-right">
-        <h3>Bachelor of Science — Aerospace Engineering</h3>
-        <p style="color:#a0a0a0;">August 2021 – May 2025</p>
-        <p>North Carolina State University — Physics Minor. Learn more about my time at NC State.</p>
-        <div class="project-links">
-          <a href="Education.html" class="btn-red btn-small">Learn More</a>
+    <div class="container">
+        <h2 class="section-heading">My <span class="text-red">Education</span></h2>
+
+        <div class="project-row" data-aos="fade-up">
+            <div class="project-left">
+                <img class="project-img" src="img/ncsu.png" alt="NCSU Logo">
+            </div>
+            <div class="project-right">
+                <h3>Bachelor of Science — Aerospace Engineering</h3>
+                <p style="color:#a0a0a0;">August 2021 – May 2025</p>
+                <p>North Carolina State University — Physics Minor. Learn more about my time at NC State!</p>
+                <div class="project-links">
+                    <a href="Education.html" class="btn-red btn-small"><i class="fas fa-external-link-alt"></i> Learn More</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
+
 
 <!-- =========================================================
      PROJECTS
 ========================================================= -->
 <section id="projects">
-  <div class="container">
-    <h2 class="section-heading">My <span class="text-red">Projects</span></h2>
+    <div class="container">
+        <h2 class="section-heading">My <span class="text-red">Projects</span></h2>
 
-    <div class="project-row reveal">
-      <div class="project-left"><img class="project-img" src="img/TDDLogo.jpg" alt="Project Lazarus"></div>
-      <div class="project-right">
-        <h3>Project Lazarus — Algorithmic Market Scanner</h3>
-        <p>A multi-agent Python trading-intelligence framework for identifying, simulating, and distributing high-probability intraday 0DTE options setups across equities and indices in real time.</p>
-        <div class="project-links">
-          <a href="Lazarus.html" class="btn-red btn-small">Explore</a>
+        <div class="project-row" data-aos="fade-up">
+            <div class="project-left">
+                <img class="project-img" src="img/TDDLogo.jpg" alt="TDD Logo">
+            </div>
+            <div class="project-right">
+                <h3>Project Lazarus — Algorithmic Market Scanner</h3>
+                <p>A multi-agent Python trading intelligence framework for identifying, simulating, and distributing high-probability intraday 0DTE options setups across equities and indices in real time.</p>
+                <div class="project-links">
+                    <a href="Lazarus.html" class="btn-red btn-small"><i class="fas fa-external-link-alt"></i> Explore</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="project-row reveal">
-      <div class="project-left"><img class="project-img" src="img/mission-control.png" alt="Mission Control Dashboard"></div>
-      <div class="project-right">
-        <h3>Mission Control — Space Intelligence Dashboard</h3>
-        <p style="color:#a0a0a0;">May 2026 · Real-Time Aerospace Telemetry System</p>
-        <p>A cinematic real-time mission-operations dashboard built with JavaScript, Three.js, NASA APIs, and live orbital telemetry — tracking satellites, ISS positioning, asteroid threats, earthquakes, Mars weather, and upcoming launches through an immersive planetary-defense interface.</p>
-        <div class="project-links">
-          <a href="Mission-Control.html" class="btn-red btn-small">Launch Dashboard</a>
-        </div>
-      </div>
-    </div>
+          <!-- MISSION CONTROL -->
+        <div class="project-row" data-aos="fade-up">
+            <div class="project-left">
+                <img class="project-img" src="img/mission-control.png" alt="Mission Control Dashboard">
+            </div>
 
-    <div class="project-row reveal">
-      <div class="project-left"><img class="project-img" src="img/SDLOGO.png" alt="S.M.A.R.T. CubeSat"></div>
-      <div class="project-right">
-        <h3>S.M.A.R.T. CubeSat</h3>
-        <p style="color:#a0a0a0;">August 2024 – May 2025</p>
-        <p>The Soil Moisture Assessment &amp; Response Tracking satellite, designed for a proposal to the University Nanosatellite Program competition. I led a team of six aerospace students as Project Manager.</p>
-        <div class="project-links">
-          <a href="SeniorDesign.html" class="btn-red btn-small">Learn More</a>
-        </div>
-      </div>
-    </div>
+            <div class="project-right">
+                <h3>Mission Control — Space Intelligence Dashboard</h3>
 
-    <div class="project-row reveal">
-      <div class="project-left">
-        <video style="width:100%;border-radius:4px;border:1px solid var(--line);background:#000;" autoplay muted loop playsinline controls>
-          <source src="img/IMG_2253.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="project-right">
-        <h3>Automated Unmanned Aerial Vehicle</h3>
-        <p>RC plane with full autopilot — GPS navigation, autonomous waypoint missions, and complete flight-controller integration.</p>
-        <div class="project-links">
-          <a href="AUAV.html" class="btn-red btn-small">Explore</a>
+                <p style="color:#a0a0a0;">
+                    May 2026 · Real-Time Aerospace Telemetry System
+                </p>
+
+                <p>
+                    A cinematic real-time mission operations dashboard built using
+                    JavaScript, Three.js, NASA APIs, and live orbital telemetry.
+                    The system tracks satellites, ISS positioning, asteroid threats,
+                    earthquakes, Mars weather, and upcoming launches through an
+                    immersive planetary defense-style interface.
+                </p>
+
+                <div class="project-links">
+                    <a href="Mission-Control.html" class="btn-red btn-small">
+                        <i class="fas fa-satellite"></i> Launch Dashboard
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
+
+        
+        <div class="project-row" data-aos="fade-up">
+            <div class="project-left">
+                <img class="project-img" src="img/SDLOGO.png" alt="SD Logo">
+            </div>
+            <div class="project-right">
+                <h3>S.M.A.R.T. CubeSat</h3>
+                <p style="color:#a0a0a0;">August 2024 – May 2025</p>
+                <p>The Soil Moisture Assessment & Response Tracking satellite was designed and developed to enter a proposal to the University Nanosatellite Program competition. I led a team of six other aerospace students as Project Manager.</p>
+                <div class="project-links">
+                    <a href="SeniorDesign.html" class="btn-red btn-small"><i class="fas fa-external-link-alt"></i> Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-row" data-aos="fade-up">
+            <div class="project-left">
+                <video style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.08);" autoplay muted loop playsinline controls>
+                    <source src="img/IMG_2253.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="project-right">
+                <h3>Automated Unmanned Aerial Vehicle</h3>
+                <p>RC plane equipped with autopilot capabilities — GPS navigation, autonomous waypoint missions, and full flight controller integration.</p>
+                <div class="project-links">
+                    <a href="AUAV.html" class="btn-red btn-small"><i class="fas fa-external-link-alt"></i> Explore</a>
+                </div>
+            </div>
+        </div>
+
+        
     </div>
-  </div>
 </section>
+
 
 <!-- =========================================================
      SKILLS
 ========================================================= -->
 <section id="skills">
-  <div class="container reveal">
-    <h2 class="section-heading">Technical <span class="text-red">Skills</span></h2>
-    <ul class="skills-icons">
-      <li>
-        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid">
-          <path d="M106.83 41.17c-13.98 2.3-27.42 8.35-39.26 17.68l74.64 43.12V58.85c-11.23-7.55-24-12.7-35.38-17.68z" fill="#E87D23"/>
-          <path d="M106.83 41.17c11.38 4.98 24.15 10.13 35.38 17.68v43.12l-74.64-43.12c11.84-9.33 25.28-15.39 39.26-17.68z" fill="#F4A322"/>
-          <path d="M141.67 145v-39.42l69.6-40.2c.23 1.66.4 3.34.4 5.04 1.16 7.78-1.72 15.06-6.82 21.66l-28.2 16.28-35.38 20.44z" fill="#F4A322"/>
-          <path d="M141.67 87.21V126.6l-69.6 40.2c-.23-1.66-.4-3.34-.4-5.04-1.16-7.78 1.72-15.06 6.82-21.66l28.2-16.28 35.38-20.45z" fill="#DD6B20"/>
-          <path d="M106.83 214.82c13.98-2.3 27.42-8.35 39.26-17.68l-74.64-43.12v43.12c11.23 7.55 24 12.7 35.38 17.68z" fill="#DD6B20"/>
-          <path d="M106.83 214.82c-11.38-4.98-24.15-10.13-35.38-17.68v-43.12l74.64 43.12c-11.84 9.33-25.28 15.39-39.26 17.68z" fill="#E87D23"/>
-        </svg>
-        <span>Simulink</span>
-      </li>
-      <li><span class="iconify" data-icon="vscode-icons:file-type-excel" data-width="56" data-height="56"></span><span>Excel</span></li>
-      <li><span class="iconify" data-icon="logos:arduino" data-width="56" data-height="56"></span><span>Arduino</span></li>
-      <li><span class="iconify" data-icon="simple-icons:ansys" data-width="56" data-height="56" style="color:#e7e8ea;"></span><span>Ansys</span></li>
-      <li><span class="iconify" data-icon="vscode-icons:file-type-matlab" data-width="56" data-height="56"></span><span>Matlab</span></li>
-      <li><span class="iconify" data-icon="vscode-icons:file-type-html" data-width="56" data-height="56"></span><span>HTML</span></li>
-      <li><span class="iconify" data-icon="logos:java" data-width="56" data-height="56"></span><span>Java</span></li>
-      <li><span class="iconify" data-icon="logos:python" data-width="56" data-height="56"></span><span>Python</span></li>
-      <li><span class="iconify" data-icon="logos:linux-tux" data-width="56" data-height="56"></span><span>Linux</span></li>
-      <li><span class="iconify" data-icon="logos:c" data-width="56" data-height="56"></span><span>C</span></li>
-    </ul>
-  </div>
+    <div class="container" data-aos="fade-in">
+        <h2 class="section-heading" style="text-align:center;">Technical <span class="text-red">Skills</span></h2>
+        <ul class="skills-icons">
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid">
+                    <path d="M106.83 41.17c-13.98 2.3-27.42 8.35-39.26 17.68l74.64 43.12V58.85c-11.23-7.55-24-12.7-35.38-17.68z" fill="#E87D23"/>
+                    <path d="M106.83 41.17c11.38 4.98 24.15 10.13 35.38 17.68v43.12l-74.64-43.12c11.84-9.33 25.28-15.39 39.26-17.68z" fill="#F4A322"/>
+                    <path d="M141.67 145v-39.42l69.6-40.2c.23 1.66.4 3.34.4 5.04 1.16 7.78-1.72 15.06-6.82 21.66l-28.2 16.28-35.38 20.44z" fill="#F4A322"/>
+                    <path d="M141.67 87.21V126.6l-69.6 40.2c-.23-1.66-.4-3.34-.4-5.04-1.16-7.78 1.72-15.06 6.82-21.66l28.2-16.28 35.38-20.45z" fill="#DD6B20"/>
+                    <path d="M106.83 214.82c13.98-2.3 27.42-8.35 39.26-17.68l-74.64-43.12v43.12c11.23 7.55 24 12.7 35.38 17.68z" fill="#DD6B20"/>
+                    <path d="M106.83 214.82c-11.38-4.98-24.15-10.13-35.38-17.68v-43.12l74.64 43.12c-11.84 9.33-25.28 15.39-39.26 17.68z" fill="#E87D23"/>
+                </svg>
+                <span>Simulink</span>
+            </li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-excel" data-inline="false" data-width="70px" data-height="70px"></span><span>Excel</span></li>
+            <li><span class="iconify" data-icon="logos:arduino" data-inline="false" data-width="70px" data-height="70px"></span><span>Arduino</span></li>
+            <li><span class="iconify" data-icon="simple-icons:ansys" data-inline="false" data-width="70px" data-height="70px" style="color:white;"></span><span>Ansys</span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-matlab" data-inline="false" data-width="70px" data-height="70px"></span><span>Matlab</span></li>
+            <li><span class="iconify" data-icon="vscode-icons:file-type-html" data-inline="false" data-width="70px" data-height="70px"></span><span>HTML</span></li>
+            <li><span class="iconify" data-icon="logos:java" data-inline="false" data-width="70px" data-height="70px"></span><span>Java</span></li>
+            <li><span class="iconify" data-icon="logos:python" data-inline="false" data-width="70px" data-height="70px"></span><span>Python</span></li>
+             <li><span class="iconify" data-icon="logos:linux-tux" data-inline="false" data-width="70px" data-height="70px"></span><span>Linux</span></li>
+            <li><span class="iconify" data-icon="logos:c" data-inline="false" data-width="70px" data-height="70px"></span><span>C</span></li>
+        </ul>
+    </div>
 </section>
 
 <!-- =========================================================
      CONTACT
 ========================================================= -->
 <section id="contact">
-  <div class="container">
-    <h2 class="section-heading reveal">Contact <span class="text-red">Me</span></h2>
+    <div class="container">
+        <h2 class="section-heading" style="text-align:center;" data-aos="fade-in">Contact <span class="text-red">Me</span></h2>
 
-    <div class="contact-cards reveal">
-      <div class="contact-card">
-        <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope"></i></a>
-        <h3>Email</h3>
-        <p><a href="mailto:zumicuji@gmail.com">zumicuji@gmail.com</a></p>
-      </div>
-      <div class="contact-card">
-        <a href="js/Zumi Cuji.pdf" download><i class="fas fa-file-alt"></i></a>
-        <h3>Resume</h3>
-        <p><a href="js/Zumi Cuji.pdf" download>Download PDF</a></p>
-      </div>
-      <div class="contact-card">
-        <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-        <h3>LinkedIn</h3>
-        <p><a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank" rel="noopener">Zumi Huaira Cuji</a></p>
-      </div>
-    </div>
+        <div class="contact-cards">
+            <div class="contact-card" data-aos="fade-in">
+                <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope"></i></a>
+                <h3>Email</h3>
+                <p><a href="mailto:zumicuji@gmail.com">zumicuji@gmail.com</a></p>
+            </div>
+            <div class="contact-card" data-aos="fade-in">
+                <a href="js/Zumi Cuji.pdf" download><i class="fas fa-file-alt"></i></a>
+                <h3>Resume</h3>
+                <p><a href="js/Zumi Cuji.pdf" download>Download PDF</a></p>
+            </div>
+            <div class="contact-card" data-aos="fade-in" data-aos-delay="200">
+                <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank">Zumi Huaira Cuji</a>
+            </div>
+        </div>
 
-    <div class="contact-form-wrapper reveal">
-      <h2>Send <span class="text-red">Email</span></h2>
-      <form id="contact-form" action="https://formspree.io/f/xvzldnbz" method="POST">
-        <div class="form-group"><input type="text" name="name" placeholder="Name" required></div>
-        <div class="form-group"><input type="email" name="email" placeholder="Your email" required></div>
-        <div class="form-group"><textarea name="message" rows="6" placeholder="Message" required></textarea></div>
-        <button type="submit" class="btn-red" style="width:100%;justify-content:center;">Send Message</button>
-        <div id="status"></div>
-      </form>
+        <div class="contact-form-wrapper" data-aos="zoom-in" data-aos-delay="300">
+            <h2>Send <span class="text-red">Email</span></h2>
+            <form id="contact-form" action="https://formspree.io/f/xvzldnbz" method="POST">
+                <div class="form-group"><input type="text" name="name" placeholder="Name" required></div>
+                <div class="form-group"><input type="email" name="email" placeholder="Your email" required></div>
+                <div class="form-group"><textarea name="message" rows="6" placeholder="Message" required></textarea></div>
+                <button type="submit" class="btn-red" style="width:100%;">Send Message</button>
+                <div id="status"></div>
+            </form>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- =========================================================
      FOOTER
 ========================================================= -->
 <footer id="footer" class="footer">
-  <div class="container">
-    <div class="footer-flex">
-      <img src="img/Logo.png" alt="Zumi Cuji" id="logo-footer">
-      <div class="footer-icon-links">
-        <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg"></i></a>
-        <a href="https://github.com/ZumiCuji" target="_blank" rel="noopener"><i class="fab fa-github fa-lg"></i></a>
-        <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope fa-lg"></i></a>
-      </div>
+    <div class="container">
+        <div class="footer-flex">
+            <img src="img/Logo.png" alt="logo" id="logo-footer">
+            <div class="footer-icon-links">
+                <a href="https://linkedin.com/in/zumi-cuji-480884289" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://github.com/ZumiCuji" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+                <a href="mailto:zumicuji@gmail.com"><i class="fas fa-envelope fa-2x"></i></a>
+            </div>
+        </div>
     </div>
-  </div>
 </footer>
 
-<a id="backToTopBtn" aria-label="Back to top"><i class="fa fa-chevron-up"></i></a>
+<a id="backToTopBtn" class="btn-red"><i class="fa fa-chevron-up"></i></a>
 
-<!-- Scripts -->
+<!-- Libraries -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script defer src="js/theme.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    particlesJS.load('particles-bg', './particles.json');
+    AOS.init();
+
+    // Back to top
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('backToTopBtn');
+        if (window.scrollY > 400) btn.classList.add('show');
+        else btn.classList.remove('show');
+    });
+    document.getElementById('backToTopBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
 <script defer src="js/app.js"></script>
 
 </body>
