@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Project Lazarus — Quantitative Trading System | Zumi Cuji</title>
@@ -74,10 +75,489 @@
   .log-row p{color:var(--muted);font-size:.92rem;line-height:1.75;max-width:80ch}
   @media(max-width:600px){.log-row{grid-template-columns:1fr;gap:.6rem}}
 </style>
+=======
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Project Lazarus | Quantitative Trading Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+    <style>
+
+        /* =========================================================
+           RESET — neutralize any inherited stylesheet rules
+        ========================================================= */
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        header, #header {
+            min-height: unset !important;
+            position: relative !important;
+            background: transparent !important;
+        }
+
+        header .hero, header .socials, header .socials-sidebar { display: none !important; }
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            color: white;
+            font-family: "Inter", sans-serif;
+            background:
+                radial-gradient(circle at top,
+                rgba(220,20,60,0.16),
+                transparent 30%),
+                #0a0a0b;
+            overflow-x: hidden;
+        }
+
+        #particles-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            z-index: -1;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .text-red { color: #DC143C; }
+
+        .section-title {
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-family: "Alfa Slab One", serif;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 950px;
+            margin: auto;
+            color: #bdbdbd;
+            line-height: 1.9;
+            font-size: 1.02rem;
+        }
+
+        .section-subtitle strong { color: #fff; font-weight: 600; }
+
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        #header { padding: 2rem 0; }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo img { width: 170px; }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover { opacity: 1; color: #DC143C; }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero { text-align: center; padding-top: 3rem; }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            font-family: "Alfa Slab One", serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            max-width: 950px;
+            margin: auto;
+            color: #c7c7c7;
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+        /* =========================================================
+           PAPER RESULT
+        ========================================================= */
+
+        .paper-result {
+            margin: 3.5rem auto 0;
+            max-width: 660px;
+            text-align: center;
+            background: rgba(15,15,15,0.72);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(220,20,60,0.35);
+            border-radius: 20px;
+            padding: 2.4rem 2rem;
+            box-shadow:
+                0 0 40px rgba(220,20,60,0.14),
+                inset 0 0 30px rgba(255,255,255,0.02);
+        }
+
+        .paper-eyebrow {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            color: #DC143C;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .paper-figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.3rem;
+            flex-wrap: wrap;
+            font-family: "Alfa Slab One", serif;
+        }
+
+        .paper-start { font-size: 1.9rem; color: #8c8c8c; }
+        .paper-figure i { color: #DC143C; font-size: 1.4rem; }
+        .paper-end { font-size: 2.9rem; color: #fff; }
+
+        .paper-note {
+            display: block;
+            margin-top: 1.1rem;
+            color: #9a9a9a;
+            font-size: 0.82rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* =========================================================
+           HERO METRICS
+        ========================================================= */
+
+        .hero-metrics {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+            gap: 1.5rem;
+        }
+
+        .hero-metric {
+            background: rgba(15,15,15,0.72);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 18px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: 0.35s ease;
+            box-shadow:
+                0 0 25px rgba(220,20,60,0.08),
+                inset 0 0 30px rgba(255,255,255,0.02);
+        }
+
+        .hero-metric:hover {
+            transform: translateY(-6px);
+            border-color: rgba(220,20,60,0.4);
+            box-shadow:
+                0 0 35px rgba(220,20,60,0.18),
+                inset 0 0 30px rgba(255,255,255,0.02);
+        }
+
+        .metric-value {
+            display: block;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #a7a7a7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.82rem;
+        }
+
+        /* =========================================================
+           CAVEAT
+        ========================================================= */
+
+        .caveat {
+            margin: 3rem auto 0;
+            max-width: 1000px;
+            text-align: left;
+            background: rgba(224,168,46,0.06);
+            border: 1px solid rgba(224,168,46,0.25);
+            border-left: 4px solid #e0a82e;
+            border-radius: 14px;
+            padding: 1.9rem 2.1rem;
+        }
+
+        .caveat h3 {
+            color: #e0a82e;
+            font-size: 1.12rem;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .caveat p { color: #cfcfcf; line-height: 1.9; font-size: 0.95rem; }
+        .caveat p + p { margin-top: 0.9rem; }
+        .caveat strong { color: #fff; font-weight: 600; }
+
+        /* =========================================================
+           FEATURE GRID
+        ========================================================= */
+
+        .feature-grid {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: rgba(15,15,15,0.72);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 18px;
+            padding: 2rem;
+            transition: 0.35s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(220,20,60,0.35);
+        }
+
+        .feature-card i { color: #DC143C; font-size: 2rem; margin-bottom: 1.2rem; }
+        .feature-card h3 { margin-bottom: 1rem; }
+        .feature-card p { color: #bdbdbd; line-height: 1.8; }
+
+        /* =========================================================
+           STRATEGY GRID
+        ========================================================= */
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(420px,1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .strategy-card {
+            background: rgba(15,15,15,0.72);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .strategy-card h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+        .strategy-card p { color: #c5c5c5; line-height: 1.9; }
+
+        .sim-tag {
+            display: inline-block;
+            margin-left: 0.6rem;
+            vertical-align: middle;
+            font-size: 0.62rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #e0a82e;
+            border: 1px solid rgba(224,168,46,0.4);
+            border-radius: 6px;
+            padding: 3px 8px;
+            font-weight: 700;
+        }
+
+        .mini-stats {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .mini-stat {
+            background: rgba(255,255,255,0.03);
+            border-radius: 14px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .mini-stat h4 { margin: 0; font-size: 1.7rem; color: #fff; }
+        .mini-stat span { color: #aaa; font-size: 0.9rem; }
+
+        /* =========================================================
+           BACKTEST
+        ========================================================= */
+
+        .backtest-container {
+            margin-top: 3rem;
+            overflow: hidden;
+            border-radius: 22px;
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow:
+                0 0 45px rgba(220,20,60,0.12),
+                inset 0 0 25px rgba(255,255,255,0.02);
+        }
+
+        .backtest-image {
+            width: 100%;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .backtest-image:hover { transform: scale(1.02); }
+
+        /* =========================================================
+           DEVELOPMENT TIMELINE
+        ========================================================= */
+
+        .timeline { margin-top: 3.8rem; position: relative; }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 28px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(220,20,60,0.65), rgba(220,20,60,0.04));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 88px;
+            margin-bottom: 2.2rem;
+        }
+
+        .timeline-num {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 58px;
+            height: 58px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(12,12,13,0.95);
+            border: 1px solid rgba(220,20,60,0.4);
+            font-family: "Alfa Slab One", serif;
+            color: #DC143C;
+            font-size: 1.05rem;
+            box-shadow: 0 0 22px rgba(220,20,60,0.16);
+        }
+
+        .timeline-card {
+            background: rgba(15,15,15,0.72);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 1.6rem 1.9rem;
+            transition: 0.35s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateX(4px);
+            border-color: rgba(220,20,60,0.3);
+        }
+
+        .timeline-card h3 { font-size: 1.25rem; margin-bottom: 0.6rem; }
+        .timeline-card p { color: #bdbdbd; line-height: 1.85; font-size: 0.96rem; }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 3rem;
+        }
+
+        .footer-disclaimer {
+            max-width: 880px;
+            margin: 0 auto 2.2rem;
+            color: #7c7c7c;
+            font-size: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            background: #DC143C;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(220,20,60,0.3);
+        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media(max-width: 960px) {
+
+            .strategy-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.5rem; }
+            .metric-value { font-size: 2rem; }
+
+            .timeline-item { padding-left: 64px; }
+            .timeline::before { left: 22px; }
+            .timeline-num { width: 46px; height: 46px; font-size: 0.92rem; }
+
+            .paper-start { font-size: 1.4rem; }
+            .paper-end { font-size: 2.1rem; }
+
+        }
+
+    </style>
+>>>>>>> ac1654105b9815a16235e447ef9e698316b9483c
 </head>
 <body>
 
 <header id="header">
+<<<<<<< HEAD
   <nav>
     <div class="container nav-container">
       <a href="index.html" id="logo"><img src="img/Logo.png" alt="Zumi Cuji"></a>
@@ -99,6 +579,99 @@
       manages every position with automated risk logic, and reports in real time over Discord. It started as a
       signal-research experiment and became a full <b>execution, risk-management, and analytics platform</b>.
     </p>
+=======
+    <div class="container nav-container">
+        <a href="index.html" id="logo">
+            <img src="img/Logo.png" alt="Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="container" data-aos="fade-up">
+
+        <h1 class="hero-title">
+            Project Lazarus
+            <span class="text-red">Quantitative Trading Intelligence</span>
+        </h1>
+
+        <p class="hero-description">
+            Project Lazarus is a multi-agent algorithmic trading system, built in Python, that scans live
+            equity and index markets for intraday 0DTE options setups, executes them through a brokerage
+            paper-trading API, manages every position with automated risk logic, and reports the whole thing
+            in real time through Discord. It began as a signal-research experiment and grew into a full
+            execution, risk-management, and analytics platform. This page explains what it does — and how it
+            was built.
+        </p>
+
+        <!-- PAPER RESULT -->
+
+        <div class="paper-result" data-aos="fade-up" data-aos-delay="100">
+            <span class="paper-eyebrow">Paper Trading · Week 1</span>
+            <div class="paper-figure">
+                <span class="paper-start">$500.00</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+                <span class="paper-end">$1,613.35</span>
+            </div>
+            <span class="paper-note">Alpaca paper account · simulated fills · one week · not real capital</span>
+        </div>
+
+        <!-- BACKTEST METRICS -->
+
+        <div class="hero-metrics">
+
+            <div class="hero-metric">
+                <span class="metric-value">$<span class="counter" data-target="5272">0</span></span>
+                <span class="metric-label">Backtest Net P&L · 45 Days</span>
+            </div>
+
+            <div class="hero-metric">
+                <span class="metric-value counter" data-target="416">0</span>
+                <span class="metric-label">Simulated Trades</span>
+            </div>
+
+            <div class="hero-metric">
+                <span class="metric-value">45.4%</span>
+                <span class="metric-label">Backtest Win Rate</span>
+            </div>
+
+            <div class="hero-metric">
+                <span class="metric-value">24 / 34</span>
+                <span class="metric-label">Backtest Green Days</span>
+            </div>
+
+        </div>
+
+        <!-- CAVEAT -->
+
+        <div class="caveat" data-aos="fade-up">
+            <h3><i class="fa-solid fa-circle-exclamation"></i> Read the numbers honestly</h3>
+            <p>
+                Every performance figure on this page comes from <strong>backtesting and paper (simulated)
+                trading</strong> — not a track record of real, executed capital. Backtested results are
+                hypothetical: they assume clean fills and can flatter a strategy in hindsight. The one-week run
+                that carried a $500 paper balance to $1,613.35 is an <strong>extremely small sample</strong> on
+                a deliberately high-risk 0DTE options strategy — a result like that is driven far more by
+                variance and a handful of outlier trades than by a proven edge, and runs like it routinely
+                reverse.
+            </p>
+            <p>
+                Paper trading also leaves out the real-world frictions that decide whether a strategy actually
+                works: live slippage, the pattern-day-trader rule, execution on a 15-minute-delayed data feed,
+                and the discipline cost of trading real money. <strong>None of this is investment advice or an
+                offer of any kind.</strong> Past and simulated performance does not predict future results, and
+                0DTE options can lose their entire value within a single trading day.
+            </p>
+        </div>
+>>>>>>> ac1654105b9815a16235e447ef9e698316b9483c
 
     <div class="tape reveal">
       <div class="tape-head"><span>Paper account</span><span>·</span><span>week 01</span><span>·</span><span class="live">simulated fills</span></div>
@@ -111,6 +684,7 @@
   </div>
 </section>
 
+<<<<<<< HEAD
 <section>
   <div class="container">
     <h2 class="section-heading reveal">Backtest <span class="text-red">Readout</span></h2>
@@ -125,10 +699,147 @@
       <div class="tag">⚠ Read the numbers honestly</div>
       <p>Every figure here comes from <b>backtesting and paper (simulated) trading</b> — not a record of real, executed capital. Backtested results are hypothetical and can flatter a strategy in hindsight. The one-week run from $500 to $1,613.35 is an <b>extremely small sample</b> on a deliberately high-risk 0DTE strategy — driven far more by variance and a handful of outliers than by a proven edge, and runs like it routinely reverse.</p>
       <p>Paper trading omits the frictions that decide whether a strategy works: live slippage, the pattern-day-trader rule, a delayed feed, and the discipline cost of real money. <b>None of this is investment advice.</b> Past and simulated performance does not predict future results, and 0DTE options can lose their entire value within a single trading day.</p>
+=======
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">How It Works</h2>
+
+        <p class="section-subtitle">
+            Lazarus processes synchronized 5-minute and 15-minute market feeds across QQQ, SPY, SPX, NVDA,
+            META, TSLA, and AAPL through custom technical-analysis pipelines, reversal-detection logic, and
+            automated risk management.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card" data-aos="fade-up">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Multi-Timeframe Engine</h3>
+                <p>
+                    Analyzes 5m and 15m OHLCV structure together — EMA crossovers, VWAP positioning, RSI
+                    momentum, and abnormal volume expansion — so signals have to agree across timeframes before
+                    they fire.
+                </p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-brain"></i>
+                <h3>Signal Intelligence</h3>
+                <p>
+                    Detects breakout continuation, VWAP rejections, failed opening-range breaks, RSI
+                    divergences, and EMA reclaim/loss structures, splitting them into momentum and reversal
+                    setups.
+                </p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Execution Layer</h3>
+                <p>
+                    Selects ATM and far-OTM 0DTE contracts from the broker's own option chain, sizes against a
+                    shared daily budget, and places real (paper) orders, confirming the actual fill before it
+                    tracks the trade.
+                </p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Automated Risk Management</h3>
+                <p>
+                    Manages each position live with volatility-tiered stops and targets, scaled profit-taking,
+                    breakeven runner stops, and a hard end-of-day close — then verifies every exit actually
+                    closed on the broker.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     THE TWO ENGINES
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">The Two Engines</h2>
+
+        <p class="section-subtitle">
+            Lazarus runs as two independent bots with opposite temperaments — one trades momentum
+            continuation, the other hunts asymmetric reversals. The figures below are from
+            <strong>simulated backtesting</strong>.
+        </p>
+
+        <div class="strategy-grid">
+
+            <!-- MAIN -->
+
+            <div class="strategy-card" data-aos="fade-up">
+
+                <h3>
+                    Main Bot —
+                    <span class="text-red">Momentum Continuation</span>
+                    <span class="sim-tag">Simulated</span>
+                </h3>
+
+                <p>
+                    The Main Bot targets high-conviction continuation setups using EMA alignment, VWAP
+                    positioning, RSI acceleration, and abnormal-volume confirmation, trading ATM 0DTE contracts
+                    with volatility-tiered stop-loss and profit-target logic.
+                </p>
+
+                <div class="mini-stats">
+                    <div class="mini-stat"><h4>76</h4><span>Trades</span></div>
+                    <div class="mini-stat"><h4>59.2%</h4><span>Win Rate</span></div>
+                    <div class="mini-stat"><h4>$1,760</h4><span>Net P&L</span></div>
+                    <div class="mini-stat"><h4>+460%</h4><span>Best Trade</span></div>
+                </div>
+
+            </div>
+
+            <!-- LOTTO -->
+
+            <div class="strategy-card" data-aos="fade-up" data-aos-delay="100">
+
+                <h3>
+                    Lotto Bot —
+                    <span class="text-red">Reversal Intelligence</span>
+                    <span class="sim-tag">Simulated</span>
+                </h3>
+
+                <p>
+                    The Lotto engine runs independently as a high-risk, asymmetric reversal scanner built for
+                    convexity — far-OTM 0DTE contracts entered on VWAP rejection recovery, failed ORBs, RSI
+                    divergence, and EMA reclaim logic.
+                </p>
+
+                <div class="mini-stats">
+                    <div class="mini-stat"><h4>340</h4><span>Trades</span></div>
+                    <div class="mini-stat"><h4>42.4%</h4><span>Win Rate</span></div>
+                    <div class="mini-stat"><h4>$3,511</h4><span>Net P&L</span></div>
+                    <div class="mini-stat"><h4>+1028%</h4><span>Best Trade</span></div>
+                </div>
+
+            </div>
+
+        </div>
+
+>>>>>>> ac1654105b9815a16235e447ef9e698316b9483c
     </div>
   </div>
 </section>
 
+<<<<<<< HEAD
 <section>
   <div class="container">
     <h2 class="section-heading reveal">How It <span class="text-red">Works</span></h2>
@@ -138,6 +849,157 @@
       <div class="cap"><div class="idx">02 / detect</div><h3>Signal intelligence</h3><p>Detects breakout continuation, VWAP rejections, failed opening-range breaks, RSI divergences, and EMA reclaim/loss structures — split into momentum and reversal setups.</p></div>
       <div class="cap"><div class="idx">03 / execute</div><h3>Execution layer</h3><p>Selects ATM and far-OTM 0DTE contracts from the broker's own option chain, sizes against a shared daily budget, and confirms the actual fill before tracking the trade.</p></div>
       <div class="cap"><div class="idx">04 / manage</div><h3>Automated risk management</h3><p>Runs each position live with volatility-tiered stops and targets, scaled profit-taking, breakeven runner stops, and a hard end-of-day close — verifying every exit on the broker.</p></div>
+=======
+<!-- =========================================================
+     BACKTEST ANALYTICS
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">Backtest Analytics</h2>
+
+        <p class="section-subtitle">
+            A historical replay engine simulated 416 intraday options trades across 45 sessions
+            (April 7 – May 22, 2026), producing a combined simulated net of +$5,272 over 24 green days of 34.
+            These are <strong>hypothetical, backtested</strong> results — read them against the caveats above,
+            not as a record of money earned.
+        </p>
+
+        <div class="backtest-container" data-aos="fade-up">
+            <img
+                src="img/lazarus_backtest_2026-05-22.png"
+                alt="Lazarus backtest equity curve and trade analytics"
+                class="backtest-image"
+            >
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     HOW IT WAS BUILT
+========================================================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">How It Was Built</h2>
+
+        <p class="section-subtitle">
+            Lazarus came together in distinct phases — from a signal-research idea to an autonomous,
+            remotely-operated system grounded entirely in live brokerage data.
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-num">01</div>
+                <div class="timeline-card">
+                    <h3>Signal Research &amp; Strategy Design</h3>
+                    <p>
+                        It started with a thesis: that intraday momentum and exhaustion leave a readable
+                        footprint across timeframes. I defined the rules — multi-timeframe EMA structure, VWAP
+                        positioning, RSI, and volume expansion — for two opposite ideas: breakout continuation
+                        and far-OTM reversal.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-num">02</div>
+                <div class="timeline-card">
+                    <h3>Backtesting &amp; Replay Framework</h3>
+                    <p>
+                        Before risking anything, I built a replay engine to run the rules over 45 days of
+                        historical data, producing trade-by-trade P&amp;L and analytics. This is where the
+                        simulated figures come from — useful for pressure-testing logic, but hypothetical by
+                        nature.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-num">03</div>
+                <div class="timeline-card">
+                    <h3>Real-Time Bot Architecture</h3>
+                    <p>
+                        The strategy split into two independent Discord bots — a momentum "Main" engine and an
+                        asymmetric "Lotto" engine — each scanning live feeds, calling out setups, and
+                        dispatching structured alerts the moment a signal fires.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-num">04</div>
+                <div class="timeline-card">
+                    <h3>Live Execution via Alpaca</h3>
+                    <p>
+                        I wired the bots into Alpaca's paper-trading API so signals became actual orders —
+                        contract selection, position sizing against a shared daily budget, fills, and
+                        account-level P&amp;L — turning a scanner into a system that actually trades.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-num">05</div>
+                <div class="timeline-card">
+                    <h3>Grounding Everything in Real Data</h3>
+                    <p>
+                        The hardest and most important phase: I replaced every internally-estimated price with
+                        live brokerage data. Confirmed fill prices on entry, real unrealized P&amp;L on exit,
+                        position-truth reads on every command, and finally contract selection from the broker's
+                        own option chain — so the strike chosen and the price reasoned about come from the same
+                        feed that fills and marks the trade.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-num">06</div>
+                <div class="timeline-card">
+                    <h3>Risk &amp; Trade Management</h3>
+                    <p>
+                        Added volatility-tiered stops and targets, scaled profit-taking — trim the bulk at the
+                        first target and let one or two "runner" contracts ride with the stop moved to breakeven
+                        — and focused new entries into the highest-movement part of the session, backed by data.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-num">07</div>
+                <div class="timeline-card">
+                    <h3>Honest Analytics</h3>
+                    <p>
+                        I built reporting that measures the strategy rather than flatters it: per-leg accounting
+                        that separates trimmed legs from runners, and a time-of-day study that finds when the
+                        underlying actually moves. The point is to surface the truth about the edge, including
+                        when there isn't one.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-num">08</div>
+                <div class="timeline-card">
+                    <h3>Autonomous Operations</h3>
+                    <p>
+                        Finally, I made it run itself: scheduled with systemd, fully operable from a phone over a
+                        private mesh network and owner-locked Discord admin commands, with self-deploy and a
+                        watchdog that auto-rolls-back a bad update if the bot stops sending heartbeats.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+>>>>>>> ac1654105b9815a16235e447ef9e698316b9483c
     </div>
   </div>
 </section>
@@ -188,6 +1050,7 @@
   </div>
 </section>
 
+<<<<<<< HEAD
 <section>
   <div class="container">
     <h2 class="section-heading reveal">How It Was <span class="text-red">Built</span></h2>
@@ -203,6 +1066,18 @@
     </div>
   </div>
 </section>
+=======
+    <p class="footer-disclaimer">
+        Project Lazarus is a personal engineering project shown for portfolio purposes. All figures are from
+        backtesting or paper trading and do not represent real money. Nothing here is investment advice, a
+        performance guarantee, or an offer to manage money or sell a security. Trading 0DTE options carries a
+        high risk of total loss.
+    </p>
+
+    <a href="index.html" class="btn-back">
+        ← Back to Portfolio
+    </a>
+>>>>>>> ac1654105b9815a16235e447ef9e698316b9483c
 
 <footer class="footer">
   <div class="container">
@@ -213,7 +1088,51 @@
   </div>
 </footer>
 
+<<<<<<< HEAD
 <a id="backToTopBtn" aria-label="Back to top"><i class="fa fa-chevron-up"></i></a>
+=======
+<!-- =========================================================
+     LIBRARIES
+========================================================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<!-- =========================================================
+     JS
+========================================================= -->
+
+<script>
+
+    // Ambient particle field (expects ./particles.json alongside the page)
+    if (window.particlesJS) {
+        particlesJS.load('particles-bg', './particles.json');
+    }
+
+    // Scroll reveal
+    AOS.init({ duration: 700, once: true });
+
+    // Count-up for the backtest stat numbers
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+        const updateCounter = () => {
+            const target  = +counter.getAttribute('data-target');
+            const current = +counter.innerText.replace(/,/g, '');
+            const increment = target / 60;
+
+            if (current < target) {
+                counter.innerText = Math.ceil(current + increment).toLocaleString();
+                setTimeout(updateCounter, 25);
+            } else {
+                counter.innerText = target.toLocaleString();
+            }
+        };
+        updateCounter();
+    });
+
+</script>
+>>>>>>> ac1654105b9815a16235e447ef9e698316b9483c
 
 <script defer src="js/theme.js"></script>
 </body>
